@@ -5,11 +5,9 @@ import Login from './pages/Login/Login'
 
 function App() {
 
-  const isLoggedIn = localStorage.getItem('username') ? true : false
-
   return (
     <div className='container'>
-      { isLoggedIn ? <Home /> : <Login /> }
+      { localStorage.getItem('user') ? <Home /> : <Login /> }
     </div>
   )
 }

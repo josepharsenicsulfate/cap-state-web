@@ -14,39 +14,3 @@
     width: 15rem;
     height: 15rem;
 }
-
-.form{
-    display: grid;
-    align-items: center;
-    justify-content: center;
-
-    grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: 5fr;
-    gap: 0.5rem;
-}
-
-input{
-    padding: 0;
-    font-size: 1rem;
-}
-
-label{
-    margin-bottom: -1.5rem;
-}
-
-button{
-    outline: none;
-    border: 1px solid var(--off-white-);
-    background-color: var(--off-white-);
-    color: var(--mat-black-);
-    font-size: 1rem;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-button:hover{
-    transition: 0.5s ease;
-    background: var(--des-purple-);
-    color: var(--off-white-);
-    cursor: pointer;
-}
