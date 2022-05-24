@@ -22,7 +22,11 @@ function Login() {
 
   return (
     <div className='card'>
-      <Form login={login} inputHandler={inputHandler} hide={hide}/>
+      <Form 
+        login={login} 
+        inputHandler={inputHandler} 
+        hide={hide}
+      />
     </div>
   )
 }
