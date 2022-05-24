@@ -1,0 +1,12 @@
+.home{
+    background-color: var(--des-purple-);
+    padding: 2rem;
+
+    width: 15rem;
+    height: 15rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
