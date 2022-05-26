@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 
 import './Login.css'
 
-import Form from '../../components/Form/Form'
-
 function Login() {
 
   const [ input, setInput ] = useState('')
@@ -13,20 +11,23 @@ function Login() {
   }
 
   const login = () => {
-    input ? localStorage.setItem('user', input) : alert('sus')
+    input ? localStorage.setItem('user', input) : sus()
   }
 
-  const hide = () => {
-    document.querySelector('form.login').style.display = 'none'
+  const sus = () => {
+    alert('sus')
   }
 
   return (
     <div className='card'>
-      <Form 
-        login={login} 
-        inputHandler={inputHandler} 
-        hide={hide}
-      />
+      <form onSubmit={login}>
+        <label htmlFor="username">Username:</label>
+        <input type="text" name="username" id="username" onChange={inputHandler}/>
+        <label htmlFor="password">Password:</label>
+        <input type="password" name="password" id="password" />
+        <button type='submit'>Login</button>
+        <p className='link' onClick={sus}>Don't have an account yet?</p>
+      </form>
     </div>
   )
 }

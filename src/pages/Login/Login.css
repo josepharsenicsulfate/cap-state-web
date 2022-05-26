@@ -3,14 +3,50 @@
     align-items: center;
     justify-content: center;
 
-    flex-wrap: wrap;
-    align-self: center;
-
-    background-color: var(--des-purple-);
+    background-color: var(--mk-grey-);
     color: var(--mat-black-);
 
-    padding: 2rem;
+    padding: 1.2rem;
+}
 
-    width: 15rem;
-    height: 15rem;
+.card > form > * {
+    display: block;
+}
+
+button{
+    width: 100%;
+    font-size: 1rem;
+    margin: 1rem 0;
+
+    background-color: var(--mk-black-);
+    color: var(--mk-white-);
+    border: none;
+    outline: none;
+    padding: 3px 0;
+}
+
+input{
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--mk-black-);
+    font-size: 1rem;
+    margin-bottom: 11px;
+}
+
+input:focus{
+    border: none;
+    border-bottom: 1px solid var(--mk-black-);
+    outline: none;
+    background: none;
+    font-size: 1rem;
+}
+
+.link{
+    font-size: 0.4rem;
+    text-decoration: underline;
+}
+
+.link:hover{
+    color: var(--mk-white-);
+    cursor: pointer;
 }

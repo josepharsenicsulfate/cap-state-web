@@ -1,12 +1,17 @@
 .home{
-    background-color: var(--des-purple-);
-    padding: 2rem;
+    color: var(--mk-white-);
+    padding: 1.2rem;
+}
 
-    width: 15rem;
-    height: 15rem;
+.home > form > * {
+    display: block;
+}
+.home > form > input{
+    margin: 1rem 0;
+    color: var(--mk-white-);
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }

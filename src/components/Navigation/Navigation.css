@@ -1,3 +1,24 @@
+.nav{
+    display: flex;
+    background-color: var(--mk-grey-);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: var(--mk-black-);
+    padding: 1rem;
+}
+
+.icon-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    width: 100%;
+}
+
+.icon-container > * {
+    margin: 0;
+}
+
 .circle{
     height: 2rem;
     width: 2rem;
@@ -8,4 +29,19 @@
     text-align: center;
 
     border-radius: 50%;
+}
+
+.link-container{
+    margin: 0;
+}
+
+.nav-link{
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link > li{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0 0.5rem; 
 }
