@@ -1,17 +1,31 @@
 .home{
     color: var(--mk-white-);
-    padding: 1.2rem;
-}
-
-.home > form > * {
-    display: block;
-}
-.home > form > input{
-    margin: 1rem 0;
-    color: var(--mk-white-);
+    padding: 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 100%);
+    gap: 1rem;
+    overflow: scroll;
 }
 
 .grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.deets{
+    background-color: var(--mk-white-);
+}
+
+.deets > *{
+    display: block;
+    width: 100%;
+    color: var(--mk-black-);
+    margin: 0;
+    border: none;
+    text-indent: 0.5rem;
+}
+
+.deets input:focus{
+    border: none;
+    outline: none;
 }

@@ -5,12 +5,13 @@
     justify-content: center;
     flex-wrap: wrap;
     color: var(--mk-black-);
-    padding: 1rem;
+    padding: 1.4rem;
+    gap: 1rem;
 }
 
 .icon-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0;
     width: 100%;
 }
@@ -33,6 +34,11 @@
 
 .link-container{
     margin: 0;
+    display: none;
+}
+
+.link-container form button {
+    margin: 0.4rem 0;
 }
 
 .nav-link{
@@ -43,5 +49,25 @@
 .nav-link > li{
     text-decoration: none;
     list-style-type: none;
-    margin: 0 0.5rem; 
+    margin: 0 0.5rem;
+    text-align: center;
+}
+
+.toggle{
+    display: block;
+}
+
+@media screen and (min-width: 768px){
+    .borg{
+        display: none;
+    }
+
+    .link-container{
+        display: block;
+    }
+
+    .nav-link{
+        display: flex;
+        align-items: center;
+    }
 }
