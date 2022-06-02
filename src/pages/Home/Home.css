@@ -1,22 +1,27 @@
 .home{
     color: var(--mk-white-);
     padding: 1.4rem;
-    display: grid;
-    grid-template-columns: repeat(2, 100%);
+    display: flex;
     gap: 1rem;
-    overflow: scroll;
+    flex-wrap: wrap;
 }
 
 .grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+}
+
+.ccs-form{
+    width: 100%;
 }
 
 .deets{
     background-color: var(--mk-white-);
+    padding: 1.4rem;
 }
 
-.deets > *{
+.deets label{
     display: block;
     width: 100%;
     color: var(--mk-black-);
@@ -25,7 +30,12 @@
     text-indent: 0.5rem;
 }
 
+.deets input{
+    border-bottom: 1px solid var(--mk-black-);
+}
+
 .deets input:focus{
     border: none;
+    border-bottom: 1px solid var(--mk-black-);
     outline: none;
 }
