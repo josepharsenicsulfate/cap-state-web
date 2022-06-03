@@ -18,6 +18,11 @@ button{
   padding: 3px 0;
 }
 
+button:hover{
+  background-color: white;
+  color: var(--mk-black-);
+}
+
 input{
   background: none;
   border: none;

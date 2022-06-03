@@ -1,3 +1,7 @@
+.container.register{
+    height: 100vh;
+}
+
 .card{
     display: flex;
     align-items: center;
@@ -14,7 +18,7 @@
 }
 
 .link{
-    font-size: 0.4rem;
+    font-size: 0.6rem;
     text-decoration: underline;
 }
 

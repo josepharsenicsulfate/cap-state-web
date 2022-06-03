@@ -9,17 +9,17 @@ function Navigation() {
     document.querySelector('.link-container').classList.toggle('toggle')
   }
 
-  const user = localStorage.getItem('user')
+  const accessKey = localStorage.getItem('accessKey')
 
   const logout = () => {
-    localStorage.removeItem('user', user)
+    localStorage.removeItem('accessKey', accessKey)
   }
 
   return (
     <div className='nav'>
       <div className='icon-container'>
         <div className='circle'></div>
-        <p>hi {user}</p>
+        <p>hi user</p>
         <p className='borg' onClick={toggle}>click borg</p>
       </div>
       <div className='link-container'>

@@ -32,6 +32,10 @@
     border-radius: 50%;
 }
 
+.borg:hover{
+    color: white;
+}
+
 .link-container{
     margin: 0;
     display: none;
