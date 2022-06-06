@@ -1,7 +1,7 @@
 import React from 'react'
-
-// import { Route, BrowserRoute } from 'react-router-dom'
 import './Navigation.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
 
 function Navigation() {
 
@@ -10,6 +10,7 @@ function Navigation() {
   }
 
   const accessKey = localStorage.getItem('accessKey')
+  // const fname = localStorage.getItem('fname')
 
   const logout = () => {
     localStorage.removeItem('accessKey', accessKey)
@@ -20,16 +21,16 @@ function Navigation() {
       <div className='icon-container'>
         <div className='circle'></div>
         <p>hi user</p>
-        <p className='borg' onClick={toggle}>click borg</p>
+        <p className='borg' onClick={toggle}>
+          <FontAwesomeIcon icon='bars' />
+        </p>
       </div>
       <div className='link-container'>
         <ul className='nav-link'>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <form onSubmit={logout}>
-            <button type='submit'>Logout</button>
-          </form>
+          <li><Link to='/home'>Home</Link></li>
+          <li><Link to='/'>Profile</Link></li>
+          <li><Link to='/'>About</Link></li>
+          <button onClick={logout}>Logout</button>
         </ul>
       </div>
     </div>

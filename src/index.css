@@ -4,13 +4,11 @@ html{
   font-size: 20px;
   font-family: 'Poppins', sans-serif;
 
-  --des-purple-: hsla(242, 58%, 73%, 1);
-  --mat-black-: hsla(240, 1%, 15%, 1);
-  --off-white-: hsla(0, 0%, 100%, 1);
-
-  --mk-black-: #363636;
-  --mk-white-: #ffffff;
-  --mk-grey-: #d9d9d9
+  --mk-purple-: hsla(242, 58%, 73%, 1);
+  --mk-black-: hsla(0, 0%, 21%, 1);
+  --mk-white-: hsla(0, 0%, 100%, 1);
+  --mk-white-80a-: hsla(0, 0%, 100%, 0.8);
+  --mk-grey-: hsla(0, 0%, 85%,1);
 
 }
 

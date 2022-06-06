@@ -59,7 +59,9 @@ function Register() {
           <label htmlFor="cpassword">Confirm Password:</label>
           <input type="password" name="password" id="cpassword" />
           <button type='submit'>Register</button>
-          <Link to='/login'><p className='link'>Already have an account?</p></Link>
+          <Link to='/login'>
+            <p className='link'>Already have an account?</p>
+          </Link>
         </form>
       </div>
 

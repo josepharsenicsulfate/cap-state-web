@@ -6,6 +6,11 @@ import Register from './pages/Register/Register'
 
 import { Routes, Route } from 'react-router-dom'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faBars, faFloppyDisk, faPrint } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faBars, faFloppyDisk, faPrint)
+
 function App() {
 
   return (

@@ -8,21 +8,11 @@
     justify-content: center;
 
     background-color: var(--mk-grey-);
-    color: var(--mat-black-);
+    color: var(--mk-black-);
 
     padding: 1.2rem;
 }
 
 .card > form > * {
     display: block;
-}
-
-.link{
-    font-size: 0.6rem;
-    text-decoration: underline;
-}
-
-.link:hover{
-    color: var(--mk-white-);
-    cursor: pointer;
 }
