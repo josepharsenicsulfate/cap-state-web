@@ -10,6 +10,7 @@ import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
 
 function Home() {
+  
   let inputSet = {
     field1: '',
     field2: '',
@@ -50,7 +51,7 @@ function Home() {
       const img = canvas.toDataURL('image/jpeg')
       const pdf = new jsPDF('p', 'in', [width*px2in,height*px2in])
       pdf.addImage(img, 'JPEG', 0, 0, width*px2in, height*px2in)
-      pdf.save('sample.pdf')
+      pdf.save(inputSet.field1+'-ccs.pdf')
     })
   }
 
@@ -61,17 +62,17 @@ function Home() {
         <section className='ccs-content'>
           <h2>Name</h2>
           <h2 id='field-1'>text</h2>
-          <h2>Background</h2>
+          <h3>Background</h3>
           <p id='field-2'>text</p>
           <div className='list-container'>
             <ul>
-              <h2 id='field-3'>Cat 1</h2>
+              <h3 id='field-3'>Cat 1</h3>
               <li>Lorem</li>
               <li>Ipsum</li>
               <li>Dolor</li>
             </ul>
             <ul>
-              <h2 id='field-4'>Cat 2</h2>
+              <h3 id='field-4'>Cat 2</h3>
               <li>Lorem</li>
               <li>Ipsum</li>
               <li>Dolor</li>
@@ -100,27 +101,6 @@ function Home() {
           </form>
         </section>
       </div>
-      {/* <div className='modal'>
-        <form className='ccs-form-fields' onSubmit={change}>
-          <label htmlFor=''>Name</label>
-          <input type='text' id='input-1' />
-          <label htmlFor=''>Background</label>
-          <textarea type='text' id='input-2' />
-          <label htmlFor=''>Cat 1</label>
-          <input type='text' id='input-3' />
-          <label htmlFor=''>Cat 2</label>
-          <input type='text' id='input-4' />
-          <button 
-            type='submit'>
-            Save <FontAwesomeIcon icon='floppy-disk' />
-          </button>
-          <button 
-            className='save-btn' 
-            onClick={print}>
-            Print <FontAwesomeIcon icon='print' />
-          </button>
-        </form>
-      </div> */}
     </div>
   )
 }

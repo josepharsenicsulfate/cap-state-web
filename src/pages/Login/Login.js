@@ -1,21 +1,21 @@
 import React from 'react'
 import './Login.css'
-import { Link } from 'react-router-dom'
-// import { Link, Navigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Login() {
+  let navigate = useNavigate()
 
-  let email, password
+  let email, password, user
 
   const getInput = () => {
     email = document.querySelector('#email').value
     password = document.querySelector('#password').value
   }
 
-  // const redirect = (accessKey) => {
-  //   localStorage.setItem('accessKey', accessKey)
-  //   Navigate('/home')
-  // }
+  const getUser = (result) => {
+    localStorage.setItem('accessKey', result.accessToken)
+    localStorage.setItem('user', result.user.fname)
+  }
 
   const login = (e) => {
     e.preventDefault()
@@ -39,8 +39,8 @@ function Login() {
 
     fetch("http://127.0.0.1:8000/api/v1/auth/login", requestOptions)
       .then(response => response.text())
-      .then(result => console.log(JSON.parse(result)))
-      // .then(result => JSON.parse(result).accessToken ? redirect(JSON.parse(result).accessToken) : alert('Invalid credentials.'))
+      .then(result => getUser(JSON.parse(result)))
+      .then(result => navigate('/home'))
       .catch(error => console.log(error))
   }
 

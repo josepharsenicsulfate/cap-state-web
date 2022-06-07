@@ -1,0 +1,25 @@
+.cover{
+    background: url('../../../public/test.jpeg');
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 7rem;
+}
+
+.photo{
+    width: 7rem;
+    height: 7rem;
+    background-color: var(--mk-grey-);
+    border-radius: 50%;
+    position: relative;
+    top: 3.5rem;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deets{
+    padding: 5rem 3rem;
+    color: var(--mk-white-);
+}

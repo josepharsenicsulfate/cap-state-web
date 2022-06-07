@@ -1,7 +1,5 @@
 .home{
     color: var(--mk-white-);
-    /* display: flex;
-    flex-wrap: wrap; */
     display: grid;
     grid-template-columns: repeat(2, 100%);
     gap: 1rem;
@@ -45,39 +43,8 @@
     outline: none;
 }
 
-.modal{
-    position: absolute;
-    z-index: 10;
-    width: 90%;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    color: var(--mk-black-);
-    background-color: var(--mk-white-80a-);
-    top: calc(96px + 1rem);
-    left: 10%;
-}
-
-.modal::before{
-    position: absolute;
-    content: '«';
-    top: 1.5rem;
-    left: -1.5rem;
-    background-color: var(--mk-white-);
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-}
-
-.modal::before:hover{
-    background-color: red;
-}
-
 @media screen and (min-width: 768px){
     .home{
-        grid-template-columns: repeat(2, 50%);
+        grid-template-columns: repeat(2, 48%);
     }
 }

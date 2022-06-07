@@ -40,7 +40,7 @@ function Register() {
 
     fetch("http://127.0.0.1:8000/api/v1/auth/register", requestOptions)
       .then(response => response.text())
-      .then(result => alert('Account registered.'))
+      .then(document.querySelector('.modal').style.display = 'flex')
       .catch(error => console.log('error', error));
   }
 
@@ -63,6 +63,15 @@ function Register() {
             <p className='link'>Already have an account?</p>
           </Link>
         </form>
+      </div>
+      <div className='modal'>
+        <div>
+          <h2>Registered successfully!</h2>
+          <button>
+            <Link to='/' style={{textDecoration: 'none', color: 'var(--mk-white-'}}>Back to login
+            </Link>
+          </button>
+        </div>
       </div>
 
     </div>

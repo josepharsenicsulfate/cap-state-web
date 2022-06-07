@@ -18,6 +18,10 @@ body {
   background-color: var(--mk-black-);
 }
 
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+}
+
 @media screen and (min-width: 768px){
   html{
     font-size: 20px;

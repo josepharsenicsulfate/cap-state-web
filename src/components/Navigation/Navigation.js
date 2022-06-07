@@ -1,36 +1,43 @@
 import React from 'react'
 import './Navigation.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Navigation() {
+
+  let navigate = useNavigate()
 
   const toggle = () => {
     document.querySelector('.link-container').classList.toggle('toggle')
   }
 
-  // const accessKey = localStorage.getItem('accessKey')
-  // const fname = localStorage.getItem('fname')
-
-  // const logout = () => {
-  //   localStorage.removeItem('accessKey', accessKey)
-  // }
+  const logout = () => {
+    localStorage.removeItem('accessKey', localStorage.getItem('accessKey'))
+    navigate('/login', {replace: true})
+  }
 
   return (
     <div className='nav'>
       <div className='icon-container'>
         <div className='circle'></div>
+        <p>hi {localStorage.getItem('user')}</p>
         <p className='borg' onClick={toggle}>
           <FontAwesomeIcon icon='bars' />
         </p>
-        <p id='logout'><Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/'>Logout</Link></p>
+        <button id='logout' onClick={logout}>Logout</button>
       </div>
       <div className='link-container'>
         <ul className='nav-link'>
-          <li><Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/home'>Home</Link></li>
-          <li><Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/'>Profile</Link></li>
-          <li><Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/'>About</Link></li>
-          <li id='logout-mob'><Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/'>Logout</Link></li>
+          <li>
+            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/home'>Home</Link>
+          </li>
+          <li>
+            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/profile'>Profile</Link>
+          </li>
+          <li>
+            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/'>About</Link>
+          </li>
+          <button id='logout-mob' onClick={logout}>Logout</button>
         </ul>
       </div>
     </div>
