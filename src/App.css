@@ -67,3 +67,9 @@ textarea{
 textarea:focus{
   outline: none;
 }
+
+@media screen and (min-width: 1024px){
+  textarea{
+    min-height: 100px;
+  }
+}

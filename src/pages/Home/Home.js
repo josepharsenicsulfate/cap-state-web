@@ -55,8 +55,7 @@ function Home() {
   }
 
   return (
-    <div>
-    
+    <div style={{width: '100%'}}>
       <Navigation />
       <div className="home">
         <section className='ccs-content'>
@@ -101,7 +100,27 @@ function Home() {
           </form>
         </section>
       </div>
-      <div className='modal'>modal kekw</div>
+      {/* <div className='modal'>
+        <form className='ccs-form-fields' onSubmit={change}>
+          <label htmlFor=''>Name</label>
+          <input type='text' id='input-1' />
+          <label htmlFor=''>Background</label>
+          <textarea type='text' id='input-2' />
+          <label htmlFor=''>Cat 1</label>
+          <input type='text' id='input-3' />
+          <label htmlFor=''>Cat 2</label>
+          <input type='text' id='input-4' />
+          <button 
+            type='submit'>
+            Save <FontAwesomeIcon icon='floppy-disk' />
+          </button>
+          <button 
+            className='save-btn' 
+            onClick={print}>
+            Print <FontAwesomeIcon icon='print' />
+          </button>
+        </form>
+      </div> */}
     </div>
   )
 }

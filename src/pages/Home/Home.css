@@ -1,16 +1,15 @@
 .home{
     color: var(--mk-white-);
-    display: flex;
-    /* display: grid;
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: grid;
     grid-template-columns: repeat(2, 100%);
-    overflow: scroll; */
-    flex-wrap: wrap;
+    gap: 1rem;
+    overflow: scroll;
     padding: 1.4rem;
-    gap: 2rem;
 }
 
 .ccs-content{
-    min-width: 100%;
     background-color: var(--mk-black-);
 }
 
@@ -21,7 +20,6 @@
 }
 
 .ccs-form{
-    min-width: 100%;
     position: relative;
 }
 
@@ -32,7 +30,6 @@
 
 .ccs-form-fields label{
     display: block;
-    min-width: 100%;
     color: var(--mk-black-);
     margin: 0;
     border: none;
@@ -51,12 +48,36 @@
 .modal{
     position: absolute;
     z-index: 10;
-    min-width: 50vw;
-    min-height: 50vw;
+    width: 90%;
     align-items: center;
     justify-content: center;
     display: none;
     color: var(--mk-black-);
     background-color: var(--mk-white-80a-);
-    top: 0;
+    top: calc(96px + 1rem);
+    left: 10%;
+}
+
+.modal::before{
+    position: absolute;
+    content: '«';
+    top: 1.5rem;
+    left: -1.5rem;
+    background-color: var(--mk-white-);
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.modal::before:hover{
+    background-color: red;
+}
+
+@media screen and (min-width: 768px){
+    .home{
+        grid-template-columns: repeat(2, 50%);
+    }
 }
