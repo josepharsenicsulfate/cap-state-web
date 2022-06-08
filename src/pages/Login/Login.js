@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 function Login() {
   let navigate = useNavigate()
 
-  let email, password, user
+  let email, password
 
   const getInput = () => {
     email = document.querySelector('#email').value
@@ -14,7 +14,7 @@ function Login() {
 
   const getUser = (result) => {
     localStorage.setItem('accessKey', result.accessToken)
-    localStorage.setItem('user', result.user.fname)
+    navigate('/home')
   }
 
   const login = (e) => {
@@ -39,8 +39,10 @@ function Login() {
 
     fetch("http://127.0.0.1:8000/api/v1/auth/login", requestOptions)
       .then(response => response.text())
-      .then(result => getUser(JSON.parse(result)))
-      .then(result => navigate('/home'))
+      .then(result => JSON.parse(result))
+      .then(result => result.error 
+        ? alert('invalid credentials') 
+        : getUser(result))
       .catch(error => console.log(error))
   }
 
@@ -49,9 +51,9 @@ function Login() {
       <div className='card'>
         <form onSubmit={login}>
           <label htmlFor="email">Email:</label>
-          <input type="text" name="email" id="email" />
+          <input type="text" name="email" id="email" required/>
           <label htmlFor="password">Password:</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required/>
           <button type='submit'>Login</button>
           <Link to='/register'>
             <p className='link'>Don't have an account yet?</p>

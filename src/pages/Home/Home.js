@@ -1,11 +1,7 @@
 import React from 'react'
-
 import './Home.css'
-
 import Navigation from '../../components/Navigation/Navigation'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
 
@@ -27,7 +23,6 @@ function Home() {
     inputSet.field3 = document.querySelector('#input-3').value
     inputSet.field4 = document.querySelector('#input-4').value
     localStorage.setItem('input', JSON.stringify(inputSet))
-    alert('input submitted')
     save()
   }
 

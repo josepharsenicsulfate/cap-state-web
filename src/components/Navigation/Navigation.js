@@ -13,6 +13,7 @@ function Navigation() {
 
   const logout = () => {
     localStorage.removeItem('accessKey', localStorage.getItem('accessKey'))
+    localStorage.removeItem('user', localStorage.getItem('user'))
     navigate('/login', {replace: true})
   }
 
@@ -20,7 +21,6 @@ function Navigation() {
     <div className='nav'>
       <div className='icon-container'>
         <div className='circle'></div>
-        <p>hi {localStorage.getItem('user')}</p>
         <p className='borg' onClick={toggle}>
           <FontAwesomeIcon icon='bars' />
         </p>
@@ -33,9 +33,6 @@ function Navigation() {
           </li>
           <li>
             <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/profile'>Profile</Link>
-          </li>
-          <li>
-            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/'>About</Link>
           </li>
           <button id='logout-mob' onClick={logout}>Logout</button>
         </ul>
