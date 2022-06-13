@@ -9,12 +9,14 @@
 
 .ccs-content{
     background-color: var(--mk-black-);
+    padding: 1.4rem;
 }
 
 .list-container{
     min-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    gap: 1rem;
 }
 
 .ccs-form{
@@ -45,6 +47,10 @@
 
 @media screen and (min-width: 768px){
     .home{
-        grid-template-columns: repeat(2, 48%);
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ccs-content{
+        grid-column: 1 / span 3;
     }
 }

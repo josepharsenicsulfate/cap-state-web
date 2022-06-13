@@ -11,7 +11,9 @@ function Home() {
     field1: '',
     field2: '',
     field3: '',
-    field4: ''
+    field4: '',
+    field5: '',
+    field6: ''
   }
 
   let inputGet
@@ -22,6 +24,8 @@ function Home() {
     inputSet.field2 = document.querySelector('#input-2').value
     inputSet.field3 = document.querySelector('#input-3').value
     inputSet.field4 = document.querySelector('#input-4').value
+    inputSet.field5 = document.querySelector('#input-5').value
+    inputSet.field6 = document.querySelector('#input-6').value
     localStorage.setItem('input', JSON.stringify(inputSet))
     save()
   }
@@ -32,9 +36,11 @@ function Home() {
     document.querySelector('#field-2').innerHTML = inputGet.field2
     document.querySelector('#field-3').innerHTML = inputGet.field3
     document.querySelector('#field-4').innerHTML = inputGet.field4
+    document.querySelector('#field-5').innerHTML = inputGet.field5
+    document.querySelector('#field-6').innerHTML = inputGet.field6
   }
 
-  const print = () => {
+  const download = () => {
     const width = document.querySelector('.ccs-content').offsetWidth
     const height = document.querySelector('.ccs-content').offsetHeight
     const domElement = document.querySelector('.ccs-content')
@@ -62,15 +68,11 @@ function Home() {
           <div className='list-container'>
             <ul>
               <h3 id='field-3'>Cat 1</h3>
-              <li>Lorem</li>
-              <li>Ipsum</li>
-              <li>Dolor</li>
+              <li id='field-4'>Lorem</li>
             </ul>
             <ul>
-              <h3 id='field-4'>Cat 2</h3>
-              <li>Lorem</li>
-              <li>Ipsum</li>
-              <li>Dolor</li>
+              <h3 id='field-5'>Cat 2</h3>
+              <li id='field-6'>Lorem</li>
             </ul>
           </div>
         </section>
@@ -80,18 +82,28 @@ function Home() {
             <input type='text' id='input-1' />
             <label htmlFor=''>Background</label>
             <textarea type='text' id='input-2' />
-            <label htmlFor=''>Cat 1</label>
-            <input type='text' id='input-3' />
-            <label htmlFor=''>Cat 2</label>
-            <input type='text' id='input-4' />
+            <div className='list-container'>
+              <div>
+                <label htmlFor=''>Cat 1</label>
+                <input type='text' id='input-3' style={{width: '45%'}}/>
+                <label htmlFor=''>Ipsum</label>
+                <input type='text' id='input-4' style={{width: '45%'}}/>
+              </div>
+              <div>
+                <label htmlFor=''>Cat 2</label>
+                <input type='text' id='input-5' style={{width: '45%'}}/>
+                <label htmlFor=''>Ipsum</label>
+                <input type='text' id='input-6' style={{width: '45%'}}/>
+              </div>
+            </div>
             <button 
               type='submit'>
               Save <FontAwesomeIcon icon='floppy-disk' />
             </button>
             <button 
               className='save-btn' 
-              onClick={print}>
-              Print <FontAwesomeIcon icon='print' />
+              onClick={download}>
+              Download <FontAwesomeIcon icon='download' />
             </button>
           </form>
         </section>

@@ -66,7 +66,7 @@ function Register() {
         <div>
           <h2>Registered successfully!</h2>
           <button>
-            <Link to='/' style={{textDecoration: 'none', color: 'var(--mk-white-'}}>Back to login
+            <Link to='/login' style={{textDecoration: 'none', color: 'var(--mk-white-'}}>Back to login
             </Link>
           </button>
         </div>

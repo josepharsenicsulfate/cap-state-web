@@ -6,9 +6,9 @@ import Profile from './pages/Profile/Profile'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { UserContext } from './UserContext'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faFloppyDisk, faPrint } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faFloppyDisk, faPrint, faDownload } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faFloppyDisk, faPrint)
+library.add(faBars, faFloppyDisk, faPrint, faDownload)
 
 function App() {
 
