@@ -10,6 +10,7 @@
 .ccs-content{
     background-color: var(--mk-black-);
     padding: 1.4rem;
+    max-width: 8.11in;
 }
 
 .list-container{
@@ -43,6 +44,10 @@
     border: none;
     border-bottom: 1px solid var(--mk-black-);
     outline: none;
+}
+
+.ccs-form-fields button{
+    margin: 0.3rem 0;
 }
 
 @media screen and (min-width: 768px){

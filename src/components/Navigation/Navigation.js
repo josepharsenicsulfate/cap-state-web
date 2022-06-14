@@ -32,7 +32,10 @@ function Navigation() {
             <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/home'>Home</Link>
           </li>
           <li>
-            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/profile'>Profile</Link>
+            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/user'>User</Link>
+          </li>
+          <li>
+            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/company'>Company</Link>
           </li>
           <button id='logout-mob' onClick={logout}>Logout</button>
         </ul>

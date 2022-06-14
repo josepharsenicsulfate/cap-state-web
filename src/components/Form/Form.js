@@ -3,7 +3,8 @@ import './Form.css'
 
 function Form(props) {
   return (
-    <form></form>
+    <form>
+    </form>
   )
 }
 
