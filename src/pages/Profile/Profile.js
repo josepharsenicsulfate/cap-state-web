@@ -7,7 +7,8 @@ import './Profile.css'
 function Profile() {
 
   useEffect(()  => {
-    console.log('test')
+    get()
+    getFormData()
   })
 
   const hide = (e) => {
@@ -60,28 +61,28 @@ function Profile() {
   }
 
   const getFormData = () => {
-    inputProfGet.last = document.querySelector('#last').value
-    inputProfGet.first = document.querySelector('#first').value
-    inputProfGet.middle = document.querySelector('#middle').value
-    inputProfGet.suffix = document.querySelector('#suffix').value
-    inputProfGet.telephone = document.querySelector('#telephone').value
-    inputProfGet.address1 = document.querySelector('#address1').value
-    inputProfGet.address2 = document.querySelector('#address2').value
-    inputProfGet.city = document.querySelector('#city').value
-    inputProfGet.region = document.querySelector('#region').value
-    inputProfGet.zipcode = document.querySelector('#zipcode').value
-    inputProfGet.country = document.querySelector('#country').value
+    inputProfGet.last = document.getElementById('last-form').value
+    inputProfGet.first = document.getElementById('first-form').value
+    inputProfGet.middle = document.getElementById('middle-form').value
+    inputProfGet.suffix = document.getElementById('suffix-form').value
+    inputProfGet.telephone = document.getElementById('telephone-form').value
+    inputProfGet.address1 = document.getElementById('address1-form').value
+    inputProfGet.address2 = document.getElementById('address2-form').value
+    inputProfGet.city = document.getElementById('city-form').value
+    inputProfGet.region = document.getElementById('region-form').value
+    inputProfGet.zipcode = document.getElementById('zipcode-form').value
+    inputProfGet.country = document.getElementById('country-form').value
   }
 
   const post = (e) => {
     e.preventDefault()
+    
+    getFormData() 
+
     var myHeaders = new Headers()
     myHeaders.append("Accept", "application/json")
     myHeaders.append("Content-Type", "application/json")
     myHeaders.append("Authorization", "Bearer " + localStorage.getItem('accessKey'))
-
-    console.log(inputProfGet)
-    getFormData()
 
     var formdata = new FormData()
     formdata.append("profile_picture", "photo.jpeg")
@@ -97,12 +98,18 @@ function Profile() {
     formdata.append("zipcode", inputProfGet.zipcode)
     formdata.append("country", inputProfGet.country)
 
+    for(let [name, value] of formdata) {
+      console.log(`${name} = ${value}`)
+    }
+
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: formdata,
       redirect: 'follow'
     }
+
+    console.log(requestOptions)
 
     fetch("http://127.0.0.1:8000/api/v1/user/profile", requestOptions)
       .then(response => response.text())
@@ -132,17 +139,17 @@ function Profile() {
         <div className='user-form hide'>
           <form onSubmit={post}>
             <input type="file" placeholder='profile pic' />
-            <input type="text" placeholder='last' id='last' />
-            <input type="text" placeholder='first' id='first' />
-            <input type="text" placeholder='middle' id='middle' />
-            <input type="text" placeholder='suffix' id='suffix' />
-            <input type="text" placeholder='telephone' id='telephone' />
-            <input type="text" placeholder='address1' id='address1' />
-            <input type="text" placeholder='address2' id='address2' />
-            <input type="text" placeholder='city' id='city' />
-            <input type="text" placeholder='region' id='region' />
-            <input type="text" placeholder='zipcode' id='zipcode' />
-            <input type="text" placeholder='country' id='country' />
+            <input type="text" placeholder='last' id='last-form' />
+            <input type="text" placeholder='first' id='first-form' />
+            <input type="text" placeholder='middle' id='middle-form' />
+            <input type="text" placeholder='suffix' id='suffix-form' />
+            <input type="text" placeholder='telephone' id='telephone-form' />
+            <input type="text" placeholder='address1' id='address1-form' />
+            <input type="text" placeholder='address2' id='address2-form' />
+            <input type="text" placeholder='city' id='city-form' />
+            <input type="text" placeholder='region' id='region-form' />
+            <input type="text" placeholder='zipcode' id='zipcode-form' />
+            <input type="text" placeholder='country' id='country-form' />
             <button type='submit'>Save <FontAwesomeIcon icon='floppy-disk' /></button>
             <p onClick={hide} style={{
               color: 'var(--mk-black-)',
