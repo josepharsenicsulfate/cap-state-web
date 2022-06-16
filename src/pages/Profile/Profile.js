@@ -3,10 +3,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import Navigation from '../../components/Navigation/Navigation'
 import './Profile.css'
+// import Funcs from './Funcs'
 
 function Profile() {
 
-  useEffect(()  => {
+  useEffect(() => {
+    setContent()
     get()
     getFormData()
   })
@@ -47,6 +49,7 @@ function Profile() {
   }
 
   let inputProfGet = {
+    image: '',
     last: '',
     first: '',
     middle: '',
@@ -61,6 +64,7 @@ function Profile() {
   }
 
   const getFormData = () => {
+    inputProfGet.image = document.getElementById('image-form').value
     inputProfGet.last = document.getElementById('last-form').value
     inputProfGet.first = document.getElementById('first-form').value
     inputProfGet.middle = document.getElementById('middle-form').value
@@ -76,45 +80,80 @@ function Profile() {
 
   const post = (e) => {
     e.preventDefault()
-    
-    getFormData() 
+    getFormData()
 
     var myHeaders = new Headers()
     myHeaders.append("Accept", "application/json")
     myHeaders.append("Content-Type", "application/json")
     myHeaders.append("Authorization", "Bearer " + localStorage.getItem('accessKey'))
 
-    var formdata = new FormData()
-    formdata.append("profile_picture", "photo.jpeg")
-    formdata.append("lastname", inputProfGet.last)
-    formdata.append("firstname", inputProfGet.first)
-    formdata.append("suffixname", inputProfGet.suffix)
-    formdata.append("telephone", inputProfGet.telephone)
-    formdata.append("middlename", inputProfGet.middle)
-    formdata.append("address1", inputProfGet.address1)
-    formdata.append("address2", inputProfGet.address2)
-    formdata.append("city", inputProfGet.city)
-    formdata.append("region", inputProfGet.region)
-    formdata.append("zipcode", inputProfGet.zipcode)
-    formdata.append("country", inputProfGet.country)
-
-    for(let [name, value] of formdata) {
-      console.log(`${name} = ${value}`)
-    }
-
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body: formdata,
+      body: JSON.stringify({
+        'profile_picture':  inputProfGet.image,
+        'lastname': inputProfGet.last,
+        'firstname': inputProfGet.first,
+        'middlename': inputProfGet.middle,
+        'suffixname': inputProfGet.suffix,
+        'telephone': inputProfGet.telephone,
+        'address1': inputProfGet.address1,
+        'address2': inputProfGet.address2,
+        'city': inputProfGet.city,
+        'region': inputProfGet.region,
+        'zipcode': inputProfGet.zipcode,
+        'country': inputProfGet.country
+      }),
       redirect: 'follow'
     }
 
-    console.log(requestOptions)
-
-    fetch("http://127.0.0.1:8000/api/v1/user/profile", requestOptions)
+    fetch("http://127.0.0.1:8000/api/v1/user/profile",requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
-      .catch(error => console.log('error', error))
+      .catch(error => console.log('error',error))
+  }
+
+  const fields = [
+    'name',
+    'telephone',
+    'address1',
+    'address2',
+    'city',
+    'region',
+    'zipcode',
+    'country'
+  ]
+
+  const form = [
+    'image-form',
+    'last-form',
+    'first-form',
+    'middle-form',
+    'suffix-form',
+    'telephone-form',
+    'address1-form',
+    'address2-form',
+    'city-form',
+    'region-form',
+    'zipcode-form',
+    'country-form'
+  ]
+
+  const setContent = () => {
+    let container = document.querySelector('.deets')
+    for (let i = 0; i < fields.length; i++) {
+      let newChild
+      i === 0 ? newChild = document.createElement('h1') : newChild = document.createElement('p')
+      newChild.id = fields[i]
+      container.appendChild(newChild)
+    }
+  }
+
+  const setForms = () => {
+    let form_container = document.querySelector('.user-form')
+    for (let i = 0; i < form.length; i++){
+
+    }
   }
 
   return (
@@ -126,19 +165,11 @@ function Profile() {
         <div className='deets'>
           <button onClick={hide}>Edit <FontAwesomeIcon icon='edit' /></button>
           <button onClick={get}>Test <FontAwesomeIcon icon='edit' /></button>
-          <h1 id='name'>Lorem</h1>
-          <p id='telephone'>Ipsum</p>
-          <p id='address1'>Dolor</p>
-          <p id='address2'>Sit</p>
-          <p id='city'>Amet</p>
-          <p id='region'>Lorem</p>
-          <p id='zipcode'>Ipsum</p>
-          <p id='country'>Dolor</p>
         </div>
 
         <div className='user-form hide'>
           <form onSubmit={post}>
-            <input type="file" placeholder='profile pic' />
+            <input type="file" placeholder='profile pic' id='image-form' />
             <input type="text" placeholder='last' id='last-form' />
             <input type="text" placeholder='first' id='first-form' />
             <input type="text" placeholder='middle' id='middle-form' />
@@ -153,9 +184,9 @@ function Profile() {
             <button type='submit'>Save <FontAwesomeIcon icon='floppy-disk' /></button>
             <p onClick={hide} style={{
               color: 'var(--mk-black-)',
-              position: 'absolute',
-              top: '4.2rem',
-              left: '22.7rem',
+              position: 'relative',
+              top: '-31.5rem',
+              left: '41rem',
               fontSize: '1.5rem'
             }}><FontAwesomeIcon icon='window-close' /></p>
           </form>

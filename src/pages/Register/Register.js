@@ -47,15 +47,15 @@ function Register() {
       <div className='card'>
         <form onSubmit={register}>
           <label htmlFor="fname">First Name:</label>
-          <input type="text" name="fname" id="fname" />
+          <input required type="text" name="fname" id="fname" />
           <label htmlFor="lname">Last Name:</label>
-          <input type="text" name="lname" id="lname" />
+          <input required type="text" name="lname" id="lname" />
           <label htmlFor="email">Email:</label>
-          <input type="email" name="email" id="email" />
+          <input required type="email" name="email" id="email" />
           <label htmlFor="password">Password:</label>
-          <input type="password" name="password" id="password" />
+          <input required type="password" name="password" id="password" />
           <label htmlFor="cpassword">Confirm Password:</label>
-          <input type="password" name="password" id="cpassword" />
+          <input required type="password" name="password" id="cpassword" />
           <button type='submit'>Register</button>
           <Link to='/login'>
             <p className='link'>Already have an account?</p>
