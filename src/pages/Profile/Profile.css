@@ -1,5 +1,6 @@
 .profile{
     display: block;
+    overflow: hidden;
 }
 
 .cover{
@@ -48,6 +49,7 @@
     padding: 3rem;
     position: absolute;
     top: 14rem;
+    overflow: hidden;
 }
 
 .user-form form{
