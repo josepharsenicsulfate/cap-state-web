@@ -38,6 +38,7 @@ function Profile() {
   }
 
   const reflect = (result) => {
+    document.querySelector('#profile').src = result.profile_picture
     document.querySelector('#name').innerHTML = result.firstname + ' ' + result.lastname
     document.querySelector('#telephone').innerHTML = result.telephone
     document.querySelector('#address1').innerHTML = result.address1
@@ -160,7 +161,9 @@ function Profile() {
     <div className='profile'>
         <Navigation />
         <div className='cover'>
-            <div className='photo'>photo pog</div>
+            <div className='photo'>
+              <img id='profile' src="" alt="" />
+            </div>
         </div>
         <div className='deets'>
           <button onClick={hide}>Edit <FontAwesomeIcon icon='edit' /></button>

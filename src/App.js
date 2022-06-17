@@ -8,14 +8,17 @@ import { Routes, Route } from 'react-router-dom'
 import { UserContext } from './UserContext'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faFloppyDisk, faPrint, faDownload, faEdit, faWindowClose } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react'
 
 library.add(faBars, faFloppyDisk, faPrint, faDownload, faEdit, faWindowClose)
 
 function App() {
+  // const Context = React.createContext()
+  // const [ user, setUser ] = useState()
 
   return (
     <div className='container'>
-      <UserContext.Provider value=''>
+      <UserContext.Provider value={''}>
         <Routes>
           <Route path='/' element={<Login />}/>
           <Route path='/login' element={<Login />}/>

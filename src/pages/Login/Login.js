@@ -1,10 +1,11 @@
-// import React, { useContext } from 'react'
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 
 function Login() {
-  let navigate = useNavigate()
+  const navigate = useNavigate()
+  // const [ user, setUser] = useState()
+  // const [ val, setVal ] = useContext(Context)
 
   let email, password
 
@@ -14,7 +15,8 @@ function Login() {
   }
 
   const getUser = (result) => {
-    localStorage.setItem('accessKey', result.accessToken)
+    // setUser({accessToken: result.accessToken, user: result.user})
+    result.accessToken ? localStorage.setItem('accessKey', result.accessToken) : alert('Invalid credentials.')
     navigate('/home')
   }
 
@@ -41,9 +43,8 @@ function Login() {
     fetch("http://127.0.0.1:8000/api/v1/auth/login", requestOptions)
       .then(response => response.text())
       .then(result => JSON.parse(result))
-      .then(result => result.error 
-        ? alert('invalid credentials') 
-        : getUser(result))
+      .then(result => 
+        result.error ? alert('invalid credentials') : getUser(result))
       .catch(error => console.log(error))
   }
 
