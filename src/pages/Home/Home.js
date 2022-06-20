@@ -56,23 +56,56 @@ function Home() {
     })
   }
 
+  const add = (e) => {
+    const G = e.target.parentElement.parentElement
+    const newChild = document.createElement('input')
+    G.appendChild(newChild)
+  }
+
+  const dummy_text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ex, tempore earum assumenda rerum quos.'
+
   return (
     <div style={{width: '100%'}}>
       <Navigation />
       <div className="home">
         <section className='ccs-content'>
-          <h2>Name</h2>
-          <h2 id='field-1'>text</h2>
-          <h3>Background</h3>
-          <p id='field-2'>text</p>
-          <div className='list-container'>
+          <input type="text" placeholder='Company Name'/>
+          <div className='about'>
+            <h3>About</h3>
+            <textarea placeholder={dummy_text}></textarea>
+          </div>
+          <div className='core-comp'>
+            <h4>Core Competencies</h4>
+            <textarea placeholder={dummy_text}></textarea>
             <ul>
-              <h3 id='field-3'>Cat 1</h3>
-              <li id='field-4'>Lorem</li>
+              <li style={{ listStyleType: 'none'}}>
+                <FontAwesomeIcon icon='fa-lightbulb'/><input type="text"/>
+              </li>
+              <li style={{ listStyleType: 'none'}}>
+                <FontAwesomeIcon icon='fa-lightbulb'/><input type="text"/>
+              </li>
+              <li style={{ listStyleType: 'none'}}>
+                <FontAwesomeIcon icon='fa-lightbulb'/><input type="text"/>
+              </li>
+            </ul>
+          </div>
+          <div className='ach-client'>
+            <ul>
+              <h4>Past Performance</h4>
+              <li>Performance 1</li>
             </ul>
             <ul>
-              <h3 id='field-5'>Cat 2</h3>
-              <li id='field-6'>Lorem</li>
+              <h4>Featured Clients</h4>
+              <li>Client 1</li>
+            </ul>
+          </div>
+          <div className='codes-cert'>
+            <h3>Codes and Certifications</h3>
+            <ul>
+              <li>cert</li>
+              <li>cert</li>
+              <li>cert</li>
+              <li>cert</li>
             </ul>
           </div>
         </section>
@@ -80,20 +113,20 @@ function Home() {
           <form className='ccs-form-fields' onSubmit={change}>
             <label htmlFor=''>Name</label>
             <input type='text' id='input-1' />
-            <label htmlFor=''>Background</label>
+            <label htmlFor=''>About</label>
             <textarea type='text' id='input-2' />
             <div className='list-container'>
               <div>
                 <label htmlFor=''>Cat 1</label>
-                <input type='text' id='input-3' style={{width: '45%'}}/>
+                <input type='text' id='input-3' />
                 <label htmlFor=''>Ipsum</label>
-                <input type='text' id='input-4' style={{width: '45%'}}/>
+                <input type='text' id='input-4' />
               </div>
               <div>
                 <label htmlFor=''>Cat 2</label>
-                <input type='text' id='input-5' style={{width: '45%'}}/>
+                <input type='text' id='input-5' />
                 <label htmlFor=''>Ipsum</label>
-                <input type='text' id='input-6' style={{width: '45%'}}/>
+                <input type='text' id='input-6'/>
               </div>
             </div>
             <button 

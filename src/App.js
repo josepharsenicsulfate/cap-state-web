@@ -7,10 +7,10 @@ import Company from './pages/Company/Company'
 import { Routes, Route } from 'react-router-dom'
 import { UserContext } from './UserContext'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faFloppyDisk, faPrint, faDownload, faEdit, faWindowClose } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faFloppyDisk, faPrint, faDownload, faEdit, faWindowClose, faLightbulb, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 
-library.add(faBars, faFloppyDisk, faPrint, faDownload, faEdit, faWindowClose)
+library.add(faBars, faFloppyDisk, faPrint, faDownload, faEdit, faWindowClose, faLightbulb, faPlusSquare)
 
 function App() {
   // const Context = React.createContext()

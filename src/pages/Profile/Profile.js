@@ -8,17 +8,16 @@ import './Profile.css'
 function Profile() {
 
   useEffect(() => {
-    setContent()
-    get()
+    setUserContent()
+    getUInfo()
     getFormData()
   })
 
-  const hide = (e) => {
-    e.preventDefault()
+  const hide = () => {
     document.querySelector('.user-form').classList.toggle('hide')
   }
 
-  const get = () => {
+  const getUInfo = () => {
     var myHeaders = new Headers()
     myHeaders.append("Accept", "application/json")
     myHeaders.append("Content-Type", "application/json")
@@ -87,7 +86,6 @@ function Profile() {
     myHeaders.append("Accept", "application/json")
     myHeaders.append("Content-Type", "application/json")
     myHeaders.append("Authorization", "Bearer " + localStorage.getItem('accessKey'))
-
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
@@ -140,20 +138,13 @@ function Profile() {
     'country-form'
   ]
 
-  const setContent = () => {
-    let container = document.querySelector('.deets')
+  const setUserContent = () => {
+    let container = document.querySelector('.user-details')
     for (let i = 0; i < fields.length; i++) {
       let newChild
       i === 0 ? newChild = document.createElement('h1') : newChild = document.createElement('p')
       newChild.id = fields[i]
       container.appendChild(newChild)
-    }
-  }
-
-  const setForms = () => {
-    let form_container = document.querySelector('.user-form')
-    for (let i = 0; i < form.length; i++){
-
     }
   }
 
@@ -165,9 +156,9 @@ function Profile() {
               <img id='profile' src="" alt="" />
             </div>
         </div>
-        <div className='deets'>
+        <div className='user-details'>
           <button onClick={hide}>Edit <FontAwesomeIcon icon='edit' /></button>
-          <button onClick={get}>Test <FontAwesomeIcon icon='edit' /></button>
+          <button onClick={getUInfo}>Test <FontAwesomeIcon icon='edit' /></button>
         </div>
 
         <div className='user-form hide'>

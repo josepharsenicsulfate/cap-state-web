@@ -24,19 +24,19 @@
     justify-content: center;
 }
 
-.deets{
+.user-details{
     padding: 4rem 2rem;
     color: var(--mk-white-);
 }
 
-.deets button{
+.user-details button{
     background-color: var(--mk-white-);
     color: var(--mk-black-);
     border: 1px solid transparent;
     float: right;
 }
 
-.deets button:hover{
+.user-details button:hover{
     border: solid 1px var(--mk-white-);
     background-color: var(--mk-black-);
     color: var(--mk-white-);
@@ -71,7 +71,7 @@
 }
 
 @media screen and (min-width: 1024px){
-    .deets{
+    .user-details{
         padding: 5rem;
     }
 

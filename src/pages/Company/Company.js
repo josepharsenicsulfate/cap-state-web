@@ -6,16 +6,15 @@ import './Company.css'
 function Company() {
 
   useEffect(() => {
-    get()
-    getFormData()
+    setCompanyContent()
+    getCInfo()
   })
 
-  const hide = (e) => {
-    e.preventDefault()
+  const hide = () => {
     document.querySelector('.user-form').classList.toggle('hide')
   }
 
-  const get = () => {
+  const getCInfo = () => {
     var myHeaders = new Headers()
     myHeaders.append("Accept", "application/json")
     myHeaders.append("Content-Type", "application/json")
@@ -38,7 +37,7 @@ function Company() {
     document.querySelector('#cname').innerHTML = result.name
     document.querySelector('#ctelephone').innerHTML = result.telephone
     document.querySelector('#cemail').innerHTML = result.email
-    document.querySelector('#cdescription').innerHTML = result.description
+    document.querySelector('#cdesc').innerHTML = result.description
     document.querySelector('#cadd1').innerHTML = result.address1
     document.querySelector('#cadd2').innerHTML = result.address2
     document.querySelector('#ccity').innerHTML = result.city
@@ -50,7 +49,7 @@ function Company() {
     document.querySelector('#ccontact').innerHTML = result.contact_information
   }
 
-  let inputProfGet = {
+  let inputCProfGet = {
     name: '',
     telephone: '',
     email: '',
@@ -67,18 +66,19 @@ function Company() {
   }
 
   const getFormData = () => {
-    inputProfGet.image = document.getElementById('image-form').value
-    inputProfGet.last = document.getElementById('last-form').value
-    inputProfGet.first = document.getElementById('first-form').value
-    inputProfGet.middle = document.getElementById('middle-form').value
-    inputProfGet.suffix = document.getElementById('suffix-form').value
-    inputProfGet.telephone = document.getElementById('telephone-form').value
-    inputProfGet.address1 = document.getElementById('address1-form').value
-    inputProfGet.address2 = document.getElementById('address2-form').value
-    inputProfGet.city = document.getElementById('city-form').value
-    inputProfGet.region = document.getElementById('region-form').value
-    inputProfGet.zipcode = document.getElementById('zipcode-form').value
-    inputProfGet.country = document.getElementById('country-form').value
+    inputCProfGet.name = document.getElementById('cname-form').value
+    inputCProfGet.telephone = document.getElementById('ctelephone-form').value
+    inputCProfGet.email = document.getElementById('cemail-form').value
+    inputCProfGet.description = document.getElementById('cdescription-form').value
+    inputCProfGet.address1 = document.getElementById('cadd1-form').value
+    inputCProfGet.address2 = document.getElementById('cadd2-form').value
+    inputCProfGet.city = document.getElementById('ccity-form').value
+    inputCProfGet.region = document.getElementById('cregion-form').value
+    inputCProfGet.zipcode = document.getElementById('czip-form').value
+    inputCProfGet.country = document.getElementById('ccountry-form').value
+    inputCProfGet.duns_number = document.getElementById('cnumber-form').value
+    inputCProfGet.cage_code = document.getElementById('ccage-form').value
+    inputCProfGet.contact_information = document.getElementById('ccontact-form').value
   }
 
   const post = (e) => {
@@ -94,18 +94,18 @@ function Company() {
       method: 'POST',
       headers: myHeaders,
       body: JSON.stringify({
-        'profile_picture':  inputProfGet.image,
-        'lastname': inputProfGet.last,
-        'firstname': inputProfGet.first,
-        'middlename': inputProfGet.middle,
-        'suffixname': inputProfGet.suffix,
-        'telephone': inputProfGet.telephone,
-        'address1': inputProfGet.address1,
-        'address2': inputProfGet.address2,
-        'city': inputProfGet.city,
-        'region': inputProfGet.region,
-        'zipcode': inputProfGet.zipcode,
-        'country': inputProfGet.country
+        'profile_picture':  inputCProfGet.image,
+        'lastname': inputCProfGet.last,
+        'firstname': inputCProfGet.first,
+        'middlename': inputCProfGet.middle,
+        'suffixname': inputCProfGet.suffix,
+        'telephone': inputCProfGet.telephone,
+        'address1': inputCProfGet.address1,
+        'address2': inputCProfGet.address2,
+        'city': inputCProfGet.city,
+        'region': inputCProfGet.region,
+        'zipcode': inputCProfGet.zipcode,
+        'country': inputCProfGet.country
       }),
       redirect: 'follow'
     }
@@ -116,51 +116,63 @@ function Company() {
       .catch(error => console.log('error',error))
   }
 
+  const fields = [
+    'cname',
+    'ctelephone',
+    'cemail',
+    'cdesc',
+    'cadd1',
+    'cadd2',
+    'ccity',
+    'cregion',
+    'czip',
+    'ccountry',
+    'cnumber',
+    'ccage',
+    'ccontact'
+  ]
+
+  const setCompanyContent = () => {
+    let container = document.querySelector('.company-details')
+    for (let i = 0; i < fields.length; i++) {
+      let newChild
+      i === 0 ? newChild = document.createElement('h1') : newChild = document.createElement('p')
+      newChild.id = fields[i]
+      container.appendChild(newChild)
+    }
+  }
+
   return (
     <div className='profile'>
         <Navigation />
         <div className='cover'>
             <div className='photo'>photo pog</div>
         </div>
-        <div className='deets'>
+        <div className='company-details'>
           <button onClick={hide}>Edit <FontAwesomeIcon icon='edit' /></button>
-          <button onClick={get}>Test <FontAwesomeIcon icon='edit' /></button>
-          <h1 id='cname'>Name</h1>
-          <p id='ctelephone'>Telephone</p>
-          <p id='cemail'>Email</p>
-          <p id='cdesc'>Description</p>
-          <p id='cadd1'>Address</p>
-          <p id='cadd2'>Address</p>
-          <p id='ccity'>City</p>
-          <p id='cregion'>Region</p>
-          <p id='czip'>Zip</p>
-          <p id='ccountry'>Country</p>
-          <p id='cnumber'>Number</p>
-          <p id='ccage'>Cage</p>
-          <p id='ccontact'>Contact</p>
+          <button onClick={getCInfo}>Test <FontAwesomeIcon icon='edit' /></button>
         </div>
-
         <div className='user-form hide'>
-          <form action="">
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
+          <form onSubmit={post}>
+            <input type="text" placeholder="name" id="cname-form" />
+            <input type="text" placeholder="telephone" id="ctelephone-form" />
+            <input type="text" placeholder="email" id="cemail-form" />
+            <input type="text" placeholder="description" id="cdescription-form" />
+            <input type="text" placeholder="address 1" id="cadd1-form" />
+            <input type="text" placeholder="address 2" id="cadd2-form" />
+            <input type="text" placeholder="city" id="ccity-form" />
+            <input type="text" placeholder="region" id="cregion-form" />
+            <input type="text" placeholder="zip" id="czip-form" />
+            <input type="text" placeholder="country" id="ccountry-form" />
+            <input type="text" placeholder="number" id="cnumber-form" />
+            <input type="text" placeholder="cage" id="ccage-form" />
+            <input type="text" placeholder="contact" id="ccontact-form" />
             <button type='submit'>Save <FontAwesomeIcon icon='floppy-disk' /></button>
             <p onClick={hide} style={{
               color: 'var(--mk-black-)',
               position: 'relative',
-              top: '4.2rem',
-              left: '22.7rem',
+              top: '-34rem',
+              left: '41rem',
               fontSize: '1.5rem'
             }}><FontAwesomeIcon icon='window-close' /></p>
           </form>
