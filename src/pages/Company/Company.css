@@ -70,8 +70,7 @@
 }
 
 @media screen and (min-width: 1024px){
-    .company-details
-{
+    .company-details{
         padding: 5rem;
     }
 

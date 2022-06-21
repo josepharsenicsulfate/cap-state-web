@@ -13,7 +13,11 @@
     max-width: 8.11in;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 4;
+    gap: 1rem;
+}
+
+.ccs-content > h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
 }
 
 .ccs-content > :first-child{
@@ -32,6 +36,12 @@
     grid-column: 1;
 }
 
+.core-comp li {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
 .codes-cert{
     grid-row: 4;
     grid-column: 1 / span 2;
@@ -48,6 +58,27 @@
 .ccs-form-fields{
     background-color: var(--mk-white-);
     padding: 1.4rem;
+    display: grid;
+    gap: 0.2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 4;
+}
+
+.ccs-form-fields > :first-child{
+    grid-column: 1 / span 2;
+}
+
+.ccs-form-fields > :nth-child(2){
+    grid-column: 1 / span 2;
+}
+
+.ccs-form-fields > :nth-child(3){
+    grid-column: 1;
+    grid-row: 3 / span 2;
+}
+
+.ccs-form-fields > :nth-child(5){
+    grid-column: 1 / span 2;
 }
 
 .ccs-form-fields label{

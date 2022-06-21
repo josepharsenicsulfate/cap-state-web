@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html{
-  font-size: 14px;
+  font-size: 12px;
   font-family: 'Poppins', sans-serif;
 
   --mk-purple-: hsla(242, 58%, 73%, 1);
@@ -9,6 +9,10 @@ html{
   --mk-white-: hsla(0, 0%, 100%, 1);
   --mk-white-80a-: hsla(0, 0%, 100%, 0.8);
   --mk-grey-: hsla(0, 0%, 85%,1);
+
+  --sv-blue-: #105ba7; /* 105ba7 */
+  --sv-green-: #146e19; /* 146e19 */
+  --sv-grey-: #403e40; /* 403e40 */
 
 }
 
@@ -22,8 +26,29 @@ h1, h2, h3, h4, h5, h6, p, ul{
   margin: 0;
 }
 
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+
+/* login/register */
+.card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--mk-grey-);
+  color: var(--mk-black-);
+
+  padding: 1.2rem;
+}
+
+.card > form > * {
+  display: block;
+}
+
 @media screen and (min-width: 768px){
   html{
-    font-size: 20px;
+    font-size: 12px;
   }
 }

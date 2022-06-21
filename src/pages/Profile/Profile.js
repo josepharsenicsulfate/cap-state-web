@@ -3,7 +3,6 @@ import React from 'react'
 import { useEffect } from 'react'
 import Navigation from '../../components/Navigation/Navigation'
 import './Profile.css'
-// import Funcs from './Funcs'
 
 function Profile() {
 
@@ -86,30 +85,32 @@ function Profile() {
     myHeaders.append("Accept", "application/json")
     myHeaders.append("Content-Type", "application/json")
     myHeaders.append("Authorization", "Bearer " + localStorage.getItem('accessKey'))
+    
+    var formdata = new FormData()
+    formdata.append("profile_picture", inputProfGet.image)
+    formdata.append("lastname", inputProfGet.last)
+    formdata.append("firstname", inputProfGet.first)
+    formdata.append("middlename", inputProfGet.middle)
+    formdata.append("suffixname", inputProfGet.suffix)
+    formdata.append("telephone", inputProfGet.telephone)
+    formdata.append("address1", inputProfGet.address1)
+    formdata.append("address2", inputProfGet.address2)
+    formdata.append("city", inputProfGet.city)
+    formdata.append("region", inputProfGet.region)
+    formdata.append("zipcode", inputProfGet.zipcode)
+    formdata.append("country", inputProfGet.country)
+    
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body: JSON.stringify({
-        'profile_picture':  inputProfGet.image,
-        'lastname': inputProfGet.last,
-        'firstname': inputProfGet.first,
-        'middlename': inputProfGet.middle,
-        'suffixname': inputProfGet.suffix,
-        'telephone': inputProfGet.telephone,
-        'address1': inputProfGet.address1,
-        'address2': inputProfGet.address2,
-        'city': inputProfGet.city,
-        'region': inputProfGet.region,
-        'zipcode': inputProfGet.zipcode,
-        'country': inputProfGet.country
-      }),
+      body: formdata,
       redirect: 'follow'
     }
-
-    fetch("http://127.0.0.1:8000/api/v1/user/profile",requestOptions)
+    
+    fetch("http://127.0.0.1:8000/api/v1/user/profile", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
-      .catch(error => console.log('error',error))
+      .catch(error => console.log('error', error))
   }
 
   const fields = [
@@ -123,20 +124,20 @@ function Profile() {
     'country'
   ]
 
-  const form = [
-    'image-form',
-    'last-form',
-    'first-form',
-    'middle-form',
-    'suffix-form',
-    'telephone-form',
-    'address1-form',
-    'address2-form',
-    'city-form',
-    'region-form',
-    'zipcode-form',
-    'country-form'
-  ]
+  // const form = [
+  //   'image-form',
+  //   'last-form',
+  //   'first-form',
+  //   'middle-form',
+  //   'suffix-form',
+  //   'telephone-form',
+  //   'address1-form',
+  //   'address2-form',
+  //   'city-form',
+  //   'region-form',
+  //   'zipcode-form',
+  //   'country-form'
+  // ]
 
   const setUserContent = () => {
     let container = document.querySelector('.user-details')
@@ -158,12 +159,12 @@ function Profile() {
         </div>
         <div className='user-details'>
           <button onClick={hide}>Edit <FontAwesomeIcon icon='edit' /></button>
-          <button onClick={getUInfo}>Test <FontAwesomeIcon icon='edit' /></button>
+          {/* <button onClick={getUInfo}>Test <FontAwesomeIcon icon='edit' /></button> */}
         </div>
 
         <div className='user-form hide'>
           <form onSubmit={post}>
-            <input type="file" placeholder='profile pic' id='image-form' />
+            <input type="file" placeholder='profile pic' id='image-form' accept='image'/>
             <input type="text" placeholder='last' id='last-form' />
             <input type="text" placeholder='first' id='first-form' />
             <input type="text" placeholder='middle' id='middle-form' />

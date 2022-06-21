@@ -6,41 +6,56 @@ import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
 
 function Home() {
-  
-  let inputSet = {
-    field1: '',
-    field2: '',
-    field3: '',
-    field4: '',
-    field5: '',
-    field6: ''
-  }
+  let huh = JSON.parse(localStorage.getItem('input'))
 
-  let inputGet
-
-  const change = (event) => {
-    event.preventDefault()
-    inputSet.field1 = document.querySelector('#input-1').value
-    inputSet.field2 = document.querySelector('#input-2').value
-    inputSet.field3 = document.querySelector('#input-3').value
-    inputSet.field4 = document.querySelector('#input-4').value
-    inputSet.field5 = document.querySelector('#input-5').value
-    inputSet.field6 = document.querySelector('#input-6').value
-    localStorage.setItem('input', JSON.stringify(inputSet))
-    save()
+  let deets = {
+    name: huh.name,
+    about: huh.about,
+    core_comp: {
+      narrative: huh.core_comp.narrative,
+      core_1: huh.core_comp.core_1,
+      core_2: huh.core_comp.core_2,
+      core_3: huh.core_comp.core_3
+    },
+    past_perf: {
+      pp_1: huh.past_perf.pp_1,
+      pp_2: huh.past_perf.pp_2,
+      pp_3: huh.past_perf.pp_3
+    },
+    feat_client: {
+      fc_1: huh.feat_client.fc_1,
+      fc_2: huh.feat_client.fc_2,
+      fc_3: huh.feat_client.fc_3 
+    },
+    codes_cert: {
+      cc_1: huh.codes_cert.cc_1,
+      cc_2: huh.codes_cert.cc_2,
+      cc_3: huh.codes_cert.cc_3
+    }
   }
 
   const save = () => {
-    inputGet = JSON.parse(localStorage.getItem('input'))
-    document.querySelector('#field-1').innerHTML = inputGet.field1
-    document.querySelector('#field-2').innerHTML = inputGet.field2
-    document.querySelector('#field-3').innerHTML = inputGet.field3
-    document.querySelector('#field-4').innerHTML = inputGet.field4
-    document.querySelector('#field-5').innerHTML = inputGet.field5
-    document.querySelector('#field-6').innerHTML = inputGet.field6
+    deets.name = document.getElementsByName('name')[0].value
+    deets.about = document.getElementsByName('about')[0].value
+    deets.core_comp.narrative = document.getElementsByName('cc_narrative')[0].value
+    deets.core_comp.core_1 = document.getElementsByName('core_1')[0].value
+    deets.core_comp.core_2 = document.getElementsByName('core_2')[0].value
+    deets.core_comp.core_3 = document.getElementsByName('core_3')[0].value
+    deets.past_perf.pp_1 = document.getElementsByName('pp_1')[0].value
+    deets.past_perf.pp_2 = document.getElementsByName('pp_2')[0].value
+    deets.past_perf.pp_3 = document.getElementsByName('pp_3')[0].value
+    deets.feat_client.fc_1 = document.getElementsByName('fc_1')[0].value
+    deets.feat_client.fc_2 = document.getElementsByName('fc_2')[0].value
+    deets.feat_client.fc_3 = document.getElementsByName('fc_3')[0].value
+    deets.codes_cert.cc_1 = document.getElementsByName('cc_1')[0].value
+    deets.codes_cert.cc_2 = document.getElementsByName('cc_2')[0].value
+    deets.codes_cert.cc_3 = document.getElementsByName('cc_3')[0].value
+    localStorage.removeItem('input')
+    localStorage.setItem('input', JSON.stringify(deets))
   }
 
-  const download = () => {
+  const download = (e) => {
+    e.preventDefault()
     const width = document.querySelector('.ccs-content').offsetWidth
     const height = document.querySelector('.ccs-content').offsetHeight
     const domElement = document.querySelector('.ccs-content')
@@ -52,82 +67,104 @@ function Home() {
       const img = canvas.toDataURL('image/jpeg')
       const pdf = new jsPDF('p', 'in', [width*px2in,height*px2in])
       pdf.addImage(img, 'JPEG', 0, 0, width*px2in, height*px2in)
-      pdf.save(inputSet.field1+'-ccs.pdf')
+      pdf.save(deets.name+'-ccs.pdf')
     })
   }
 
-  const add = (e) => {
-    const G = e.target.parentElement.parentElement
-    const newChild = document.createElement('input')
-    G.appendChild(newChild)
-  }
-
-  const dummy_text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus ex, tempore earum assumenda rerum quos.'
+  // const add = (e) => {
+  //   const G = e.target.parentElement.parentElement
+  //   const newChild = document.createElement('input')
+  //   G.appendChild(newChild)
+  // }
 
   return (
     <div style={{width: '100%'}}>
       <Navigation />
       <div className="home">
         <section className='ccs-content'>
-          <input type="text" placeholder='Company Name'/>
+          <h1>{deets.name}</h1>
           <div className='about'>
             <h3>About</h3>
-            <textarea placeholder={dummy_text}></textarea>
+            <p>{deets.about}</p>
           </div>
           <div className='core-comp'>
             <h4>Core Competencies</h4>
-            <textarea placeholder={dummy_text}></textarea>
+            <p>{deets.core_comp.narrative}</p>
             <ul>
-              <li style={{ listStyleType: 'none'}}>
-                <FontAwesomeIcon icon='fa-lightbulb'/><input type="text"/>
+              <li>
+                <FontAwesomeIcon icon='fa-lightbulb'/>
+                <p>{deets.core_comp.core_1}</p>
               </li>
-              <li style={{ listStyleType: 'none'}}>
-                <FontAwesomeIcon icon='fa-lightbulb'/><input type="text"/>
+              <li>
+                <FontAwesomeIcon icon='fa-lightbulb'/>
+                <p>{deets.core_comp.core_2}</p>
               </li>
-              <li style={{ listStyleType: 'none'}}>
-                <FontAwesomeIcon icon='fa-lightbulb'/><input type="text"/>
+              <li>
+                <FontAwesomeIcon icon='fa-lightbulb'/>
+                <p>{deets.core_comp.core_3}</p>
               </li>
             </ul>
           </div>
           <div className='ach-client'>
             <ul>
               <h4>Past Performance</h4>
-              <li>Performance 1</li>
+              <li>{deets.past_perf.pp_1}</li>
+              <li>{deets.past_perf.pp_2}</li>
+              <li>{deets.past_perf.pp_3}</li>
             </ul>
             <ul>
               <h4>Featured Clients</h4>
-              <li>Client 1</li>
+              <li>{deets.feat_client.fc_1}</li>
+              <li>{deets.feat_client.fc_2}</li>
+              <li>{deets.feat_client.fc_3}</li>
             </ul>
           </div>
           <div className='codes-cert'>
             <h3>Codes and Certifications</h3>
             <ul>
-              <li>cert</li>
-              <li>cert</li>
-              <li>cert</li>
-              <li>cert</li>
+              <li>{deets.codes_cert.cc_1}</li>
+              <li>{deets.codes_cert.cc_2}</li>
+              <li>{deets.codes_cert.cc_3}</li>
             </ul>
           </div>
         </section>
+
         <section className='ccs-form' >
-          <form className='ccs-form-fields' onSubmit={change}>
-            <label htmlFor=''>Name</label>
-            <input type='text' id='input-1' />
-            <label htmlFor=''>About</label>
-            <textarea type='text' id='input-2' />
-            <div className='list-container'>
+          <form className='ccs-form-fields' onSubmit={save}>
+            <div>
+              <label htmlFor=''>Name</label>
+              <input type='text' name='name'/>
+            </div>
+            <div>
+              <label htmlFor=''>About</label>
+              <textarea type='text' name='about'/>
+            </div>
+            <div>
+              <label htmlFor=''>Core Competencies</label>
+              <textarea type='text' name='cc_narrative'></textarea>
+              <input type='text' name='core_1'/>
+              <input type='text' name='core_2'/>
+              <input type='text' name='core_3'/>
+            </div>
+            <div>
               <div>
-                <label htmlFor=''>Cat 1</label>
-                <input type='text' id='input-3' />
-                <label htmlFor=''>Ipsum</label>
-                <input type='text' id='input-4' />
+                <label htmlFor=''>Past Performances</label>
+                <input type='text' name='pp_1'/>
+                <input type='text' name='pp_2'/>
+                <input type='text' name='pp_3'/>
               </div>
               <div>
-                <label htmlFor=''>Cat 2</label>
-                <input type='text' id='input-5' />
-                <label htmlFor=''>Ipsum</label>
-                <input type='text' id='input-6'/>
+                <label htmlFor=''>Featured Clients</label>
+                <input type='text' name='fc_1'/>
+                <input type='text' name='fc_2'/>
+                <input type='text' name='fc_3'/>
               </div>
+            </div>
+            <div>
+              <label htmlFor=''>Codes and Certifications</label>
+              <input type='text' name='cc_1'/>
+              <input type='text' name='cc_2'/>
+              <input type='text' name='cc_3'/>
             </div>
             <button 
               type='submit'>

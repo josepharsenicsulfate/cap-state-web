@@ -150,7 +150,7 @@ function Company() {
         </div>
         <div className='company-details'>
           <button onClick={hide}>Edit <FontAwesomeIcon icon='edit' /></button>
-          <button onClick={getCInfo}>Test <FontAwesomeIcon icon='edit' /></button>
+          {/* <button onClick={getCInfo}>Test <FontAwesomeIcon icon='edit' /></button> */}
         </div>
         <div className='user-form hide'>
           <form onSubmit={post}>

@@ -1,20 +1,9 @@
 .container.register{
     height: 100vh;
-}
 
-.card{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: var(--mk-grey-);
-    color: var(--mk-black-);
-
-    padding: 1.2rem;
-}
-
-.card > form > * {
-    display: block;
+    background-image: url('../../../public/wave.svg');
+    background-position: bottom;
+    background-repeat: no-repeat;
 }
 
 .modal{
