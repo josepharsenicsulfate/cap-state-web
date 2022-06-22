@@ -137,38 +137,38 @@ function Home() {
           <form className='ccs-form-fields' onSubmit={save}>
             <div>
               <label htmlFor=''>Name</label>
-              <input type='text' name='name' value={deets.name}/>
+              <input type='text' name='name' defaultValue={deets.name}/>
             </div>
             <div>
               <label htmlFor=''>About</label>
-              <textarea type='text' name='about' value={deets.about}/>
+              <textarea type='text' name='about' defaultValue={deets.about}/>
             </div>
             <div>
               <label htmlFor=''>Core Competencies</label>
-              <textarea type='text' name='cc_narrative' value={deets.core_comp.narrative}/>
-              <input type='text' name='core_1' value={deets.core_comp.core_1}/>
-              <input type='text' name='core_2' value={deets.core_comp.core_2}/>
-              <input type='text' name='core_3' value={deets.core_comp.core_3}/>
+              <textarea type='text' name='cc_narrative' defaultValue={deets.core_comp.narrative}/>
+              <input type='text' name='core_1' defaultValue={deets.core_comp.core_1}/>
+              <input type='text' name='core_2' defaultValue={deets.core_comp.core_2}/>
+              <input type='text' name='core_3' defaultValue={deets.core_comp.core_3}/>
             </div>
             <div>
               <div>
                 <label htmlFor=''>Past Performances</label>
-                <input type='text' name='pp_1' value={deets.past_perf.pp_1}/>
-                <input type='text' name='pp_2' value={deets.past_perf.pp_2}/>
-                <input type='text' name='pp_3' value= {deets.past_perf.pp_3}/>
+                <input type='text' name='pp_1' defaultValue={deets.past_perf.pp_1}/>
+                <input type='text' name='pp_2' defaultValue={deets.past_perf.pp_2}/>
+                <input type='text' name='pp_3' defaultValue= {deets.past_perf.pp_3}/>
               </div>
               <div>
                 <label htmlFor=''>Featured Clients</label>
-                <input type='text' name='fc_1' value={deets.feat_client.fc_1}/>
-                <input type='text' name='fc_2' value={deets.feat_client.fc_2}/>
-                <input type='text' name='fc_3' value={deets.feat_client.fc_3}/>
+                <input type='text' name='fc_1' defaultValue={deets.feat_client.fc_1}/>
+                <input type='text' name='fc_2' defaultValue={deets.feat_client.fc_2}/>
+                <input type='text' name='fc_3' defaultValue={deets.feat_client.fc_3}/>
               </div>
             </div>
             <div>
               <label htmlFor=''>Codes and Certifications</label>
-              <input type='text' name='cc_1' value={deets.codes_cert.cc_1}/>
-              <input type='text' name='cc_2' value={deets.codes_cert.cc_1}/>
-              <input type='text' name='cc_3' value={deets.codes_cert.cc_1}/>
+              <input type='text' name='cc_1' defaultValue={deets.codes_cert.cc_1}/>
+              <input type='text' name='cc_2' defaultValue={deets.codes_cert.cc_1}/>
+              <input type='text' name='cc_3' defaultValue={deets.codes_cert.cc_1}/>
             </div>
             <button 
               type='submit'>
