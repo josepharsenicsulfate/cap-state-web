@@ -12,8 +12,9 @@ function Navigation() {
   }
 
   const logout = () => {
-    localStorage.removeItem('accessKey', localStorage.getItem('accessKey'))
-    localStorage.removeItem('user', localStorage.getItem('user'))
+    localStorage.removeItem('accessKey')
+    localStorage.removeItem('user')
+    localStorage.removeItem('input')
     navigate('/login', {replace: true})
   }
 
