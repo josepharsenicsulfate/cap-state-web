@@ -34,8 +34,7 @@ function Home() {
     }
   }
 
-  const save = (e) => {
-    e.preventDefault()
+  const save = () => {
     deets.name = document.getElementsByName('name')[0].value
     deets.about = document.getElementsByName('about')[0].value
     deets.core_comp.narrative = document.getElementsByName('cc_narrative')[0].value
