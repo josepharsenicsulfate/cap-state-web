@@ -84,36 +84,38 @@ function Company() {
   const post = (e) => {
     e.preventDefault()
     getFormData()
-
-    var myHeaders = new Headers()
-    myHeaders.append("Accept", "application/json")
-    myHeaders.append("Content-Type", "application/json")
-    myHeaders.append("Authorization", "Bearer " + localStorage.getItem('accessKey'))
-
+    
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + localStorage.getItem('accessKey'));
+    myHeaders.append("Content-Type", "application/json");
+    
+    var raw = JSON.stringify({
+      "name": inputCProfGet.name,
+      "email": inputCProfGet.email,
+      "telephone": inputCProfGet.telephone,
+      "description": inputCProfGet.description,
+      "address1": inputCProfGet.address1,
+      "address2": inputCProfGet.address2,
+      "city": inputCProfGet.city,
+      "region": inputCProfGet.region,
+      "zipcode": inputCProfGet.zipcode,
+      "country": inputCProfGet.country,
+      "duns_number": inputCProfGet.duns_number,
+      "cage_code": inputCProfGet.cage_code,
+      "contact_information": inputCProfGet.contact_information
+    });
+    
     var requestOptions = {
       method: 'POST',
       headers: myHeaders,
-      body: JSON.stringify({
-        'profile_picture':  inputCProfGet.image,
-        'lastname': inputCProfGet.last,
-        'firstname': inputCProfGet.first,
-        'middlename': inputCProfGet.middle,
-        'suffixname': inputCProfGet.suffix,
-        'telephone': inputCProfGet.telephone,
-        'address1': inputCProfGet.address1,
-        'address2': inputCProfGet.address2,
-        'city': inputCProfGet.city,
-        'region': inputCProfGet.region,
-        'zipcode': inputCProfGet.zipcode,
-        'country': inputCProfGet.country
-      }),
+      body: raw,
       redirect: 'follow'
-    }
-
-    fetch("http://127.0.0.1:8000/api/v1/user/profile",requestOptions)
+    };
+    
+    fetch("http://127.0.0.1:8000/api/v1/company/profile", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
-      .catch(error => console.log('error',error))
+      .catch(error => console.log('error', error));
   }
 
   const fields = [
@@ -171,8 +173,8 @@ function Company() {
             <p onClick={hide} style={{
               color: 'var(--mk-black-)',
               position: 'relative',
-              top: '-34rem',
-              left: '41rem',
+              top: '-39rem',
+              left: '103rem',
               fontSize: '1.5rem'
             }}><FontAwesomeIcon icon='window-close' /></p>
           </form>

@@ -25,20 +25,27 @@ function Navigation() {
         <p className='borg' onClick={toggle}>
           <FontAwesomeIcon icon='bars' />
         </p>
-        <button id='logout' onClick={logout}>Logout</button>
+        {/* <button id='logout' onClick={logout}>Logout</button> */}
       </div>
       <div className='link-container'>
         <ul className='nav-link'>
           <li>
-            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/home'>Home</Link>
+            <Link style={{textDecoration: 'none', 
+              color: '#000',
+              fontSize: '2rem'
+            }} to='/home'>Home</Link>
           </li>
-          <li>
+          {/* <li>
             <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/user'>User</Link>
-          </li>
+          </li> */}
           <li>
-            <Link style={{textDecoration: 'none', color: 'var(--mk-black-'}} to='/company'>Company</Link>
+            <Link style={{
+              textDecoration: 'none', 
+              color: '#000',
+              fontSize: '2rem'
+              }} to='/company'>Company</Link>
           </li>
-          <button id='logout-mob' onClick={logout}>Logout</button>
+          {/* <button id='logout-mob' onClick={logout}>Logout</button> */}
         </ul>
       </div>
     </div>

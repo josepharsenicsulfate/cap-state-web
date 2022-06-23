@@ -84,14 +84,28 @@ function Login() {
     <div className='container login'>
       <div className='card'>
         <form onSubmit={login}>
+          <h1>Sign In</h1>
           <label htmlFor="email">Email:</label>
           <input type="text" name="email" id="email" required/>
           <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" required/>
-          <button type='submit'>Login</button>
-          <Link to='/register'>
-            <p className='link'>Don't have an account yet?</p>
-          </Link>
+          <button type='submit' style={{
+            backgroundColor: 'hsl(215, 65%, 63%)',
+            borderRadius: '40px',
+            padding: '10px 25px',
+            margin: '100px auto 15px auto',
+            width: '75%'
+          }}>Login</button>
+          <p style={{
+            color: '#fff',
+            fontSize: '0.8rem',
+            textAlign: 'center'
+            }}>Don't have an account yet? <Link to='/register' style={{
+            color: '#31D5F9',
+            fontSize: '0.8rem',
+            textDecoration: 'none'
+            }}>Sign up here!</Link></p>
+
         </form>
       </div>
     </div>

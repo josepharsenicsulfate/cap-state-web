@@ -1,6 +1,6 @@
 .nav{
     display: flex;
-    background-color: var(--mk-grey-);
+    /* background-color: var(--mk-grey-); */
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -22,12 +22,15 @@
 }
 
 .circle{
-    height: 2rem;
-    width: 2rem;
-    background-color: var(--mk-black-);
+    height: 5rem;
+    width: 5rem;
+    /* background-color: var(--mk-black-); */
     color: var(--mk-white-);
     text-align: center;
     border-radius: 50%;
+    background-image: url('../../../public/Assets/man.png');
+    background-position: center;
+    background-size: cover;
 }
 
 .borg{

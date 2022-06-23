@@ -56,17 +56,21 @@ function Home() {
 
   const download = (e) => {
     e.preventDefault()
-    const width = document.querySelector('.ccs-content').offsetWidth
-    const height = document.querySelector('.ccs-content').offsetHeight
+    const base_width = document.querySelector('.ccs-content').offsetWidth
+    const base_height = document.querySelector('.ccs-content').offsetHeight
     const domElement = document.querySelector('.ccs-content')
     html2canvas(domElement, { onclone: (document) => {
       document.querySelector('.save-btn').style.visibility = 'hidden'
     }})
     .then((canvas) => {
       const px2in = 0.0104166667
+      const size = {
+        width: base_width*px2in,
+        height: base_height*px2in
+      }
       const img = canvas.toDataURL('image/jpeg')
-      const pdf = new jsPDF('p', 'in', [width*px2in,height*px2in])
-      pdf.addImage(img, 'JPEG', 0, 0, width*px2in, height*px2in)
+      const pdf = new jsPDF('p', 'in', [size.width, size.height])
+      pdf.addImage(img, 'JPEG', 0, 0, size.width, size.height)
       pdf.save(deets.name+'-ccs.pdf')
     })
   }
@@ -78,12 +82,17 @@ function Home() {
   // }
 
   return (
-    <div style={{width: '100%'}}>
+    <div style={{
+      width: '100%',
+      backgroundImage: "url('../../../public/Assets/4882066.jpg')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+      }}>
       <Navigation />
       <div className="home">
         <section className='ccs-content'>
           <div className='comp-id'>
-            <img src="https://www.streamscheme.com/wp-content/uploads/2020/11/YEP-emote.png" alt="" />
+            <img src="" alt="" />
             <h1>{deets.name}</h1>
           </div>
           <div className='about'>

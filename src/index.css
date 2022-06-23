@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html{
-  font-size: 12px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-family: 'Century Gothic';
 
   --mk-purple-: hsla(242, 58%, 73%, 1);
   --mk-black-: hsla(0, 0%, 21%, 1);
   --mk-white-: hsla(0, 0%, 100%, 1);
   --mk-white-80a-: hsla(0, 0%, 100%, 0.8);
   --mk-grey-: hsla(0, 0%, 85%,1);
+  --mk-black-sat-: #454545;
+
+  --mk-blue-: hsla(215, 73%, 43%, 1);
+  --mk-lightblue-: hsl(215, 65%, 63%);
 
   --sv-blue-: #105ba7; /* 105ba7 */
   --sv-green-: #146e19; /* 146e19 */
@@ -19,7 +23,7 @@ html{
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--mk-black-);
+  background-color: var(--mk-white-);
 }
 
 h1, h2, h3, h4, h5, h6, p, ul{
@@ -37,14 +41,29 @@ ul{
   align-items: center;
   justify-content: center;
 
-  background-color: var(--mk-grey-);
+  background-image: url('../public/Assets/BG_blue-green-rotate.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: var(--mk-black-);
 
-  padding: 1.2rem;
+  padding: 3rem;
+
+  box-shadow: 7px 7px 6px #D0D0D0;
 }
 
 .card > form > * {
   display: block;
+}
+
+.card > form > h1{
+  text-align: center;
+  transform: translateY(-50px);
+}
+
+label{
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 @media screen and (min-width: 768px){

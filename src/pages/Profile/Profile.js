@@ -64,6 +64,7 @@ function Profile() {
 
   const getFormData = () => {
     inputProfGet.image = document.getElementById('image-form').value
+    console.log(inputProfGet.image)
     inputProfGet.last = document.getElementById('last-form').value
     inputProfGet.first = document.getElementById('first-form').value
     inputProfGet.middle = document.getElementById('middle-form').value
@@ -113,6 +114,44 @@ function Profile() {
       .catch(error => console.log('error', error))
   }
 
+  // const post = (e) => {
+  //   e.preventDefault()
+    
+  //   getFormData() 
+
+  //   var myHeaders = new Headers()
+  //   myHeaders.append("Accept", "application/json")
+  //   myHeaders.append("Content-Type", "application/json")
+  //   myHeaders.append("Authorization", "Bearer " + localStorage.getItem('accessKey'))
+
+  //   var requestOptions = {
+  //     method: 'POST',
+  //     headers: myHeaders,
+  //     body: JSON.stringify({
+  //       'profile_picture':  inputProfGet.image,
+  //       'lastname': inputProfGet.last,
+  //       'firstname': inputProfGet.first,
+  //       'middlename': inputProfGet.middle,
+  //       'suffixname': inputProfGet.suffix,
+  //       'telephone': inputProfGet.telephone,
+  //       'address1': inputProfGet.address1,
+  //       'address2': inputProfGet.address2,
+  //       'city': inputProfGet.city,
+  //       'region': inputProfGet.region,
+  //       'zipcode': inputProfGet.zipcode,
+  //       'country': inputProfGet.country
+  //     }),
+  //     redirect: 'follow'
+  //   }
+
+  //   console.log(requestOptions)
+
+  //   fetch("http://127.0.0.1:8000/api/v1/user/profile", requestOptions)
+  //     .then(response => response.text())
+  //     .then(result => console.log(result))
+  //     .catch(error => console.log('error', error))
+  // }
+
   const fields = [
     'name',
     'telephone',
@@ -149,12 +188,37 @@ function Profile() {
     }
   }
 
+
+  // src.addEventListener('change', function() {
+  //   const reader = new FileReader()
+  //   reader.addEventListener('load', () => {
+  //     filepath = reader.result
+  //     document.getElementById('profile').src = filepath
+  //     console.log(filepath)
+  //   })
+  //   reader.readAsDataURL(this.files[0])
+  // })
+
+  // const set = () => {
+  //   let file
+  //   const elem = document.querySelector('#image-form')
+  //   elem.addEventListener('change', function() {
+  //     const reader = new FileReader()
+  //     reader.addEventListener('load', () => {
+  //       file = reader.result
+  //       document.getElementById('profile').src = file
+  //       console.log(file)
+  //     })
+  //     reader.readAsDataURL(elem.files[0])
+  //   })
+  // }
+
   return (
     <div className='profile'>
         <Navigation />
         <div className='cover'>
             <div className='photo'>
-              <img id='profile' src="" alt="" />
+              <img id='profile'/>
             </div>
         </div>
         <div className='user-details'>
@@ -180,8 +244,8 @@ function Profile() {
             <p onClick={hide} style={{
               color: 'var(--mk-black-)',
               position: 'relative',
-              top: '-31.5rem',
-              left: '41rem',
+              top: '-37rem',
+              left: '103rem',
               fontSize: '1.5rem'
             }}><FontAwesomeIcon icon='window-close' /></p>
           </form>
