@@ -76,7 +76,7 @@ textarea{
   min-width: 98%;
   height: 125px;
   font-family: 'Poppins', 'sans-serif';
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 textarea:focus{

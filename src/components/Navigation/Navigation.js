@@ -22,15 +22,8 @@ function Navigation() {
     navigate('/login', {replace: true})
   }
 
-
-  const root = document.querySelector('#root')
-
-  root.addEventListener('scroll', e => {
-    console.log(root.scrollTop)
-  })
-
   return (
-    <div className='nav'>
+    <div className='nav' onScroll={hide}>
       <div className='icon-container'>
         <div className='circle' onClick={show}>
           <div className='mini'>

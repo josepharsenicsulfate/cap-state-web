@@ -4,7 +4,7 @@
 }
 
 .cover{
-    background: url('../../../public/test.jpeg');
+    /* background: url('../../../public/test.jpeg'); */
     background-position: center;
     background-size: cover;
     width: 100vw;
@@ -26,7 +26,7 @@
 
 .user-details{
     padding: 4rem 2rem;
-    color: var(--mk-white-);
+    color: var(--mk-black-);
 }
 
 .user-details button{
