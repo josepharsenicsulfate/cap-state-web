@@ -12,7 +12,6 @@ function Register() {
     cpassword = document.querySelector('#cpassword').value
   }
 
-  let start = 0
   let interval = 2000
 
   const match = () => {
@@ -24,7 +23,7 @@ function Register() {
         () => {
           password === cpassword 
           ? inputOK()
-          : document.querySelector('#error').style.visibility = 'visible'
+          : inputNotOK()
         },
         interval
       )
@@ -34,6 +33,11 @@ function Register() {
   const inputOK = () => {
     document.querySelector('#register').disabled = false
     document.querySelector('#error').style.visibility = 'hidden'
+  }
+
+  const inputNotOK = () => {
+    document.querySelector('#register').disabled = true
+    document.querySelector('#error').style.visibility = 'visible'
   }
 
   const register = (event) => {
