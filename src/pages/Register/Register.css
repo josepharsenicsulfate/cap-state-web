@@ -1,9 +1,17 @@
 .container.register{
     height: 100vh;
+}
 
-    /* background-image: url('../../../public/wave.svg');
-    background-position: bottom;
-    background-repeat: no-repeat; */
+#register:disabled{
+    background-color: var(--mk-grey-);
+    color: #fff;
+}
+
+#error{
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    visibility: hidden;
 }
 
 .modal{
@@ -24,3 +32,4 @@
     display: block;
     text-align: center;
 }
+

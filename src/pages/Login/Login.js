@@ -89,13 +89,7 @@ function Login() {
           <input type="text" name="email" id="email" required/>
           <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" required/>
-          <button type='submit' style={{
-            backgroundColor: 'hsl(215, 65%, 63%)',
-            borderRadius: '40px',
-            padding: '10px 25px',
-            margin: '100px auto 15px auto',
-            width: '75%'
-          }}>Login</button>
+          <button id='login' type='submit'>Login</button>
           <p style={{
             color: '#fff',
             fontSize: '0.8rem',
@@ -104,7 +98,7 @@ function Login() {
             color: '#31D5F9',
             fontSize: '0.8rem',
             textDecoration: 'none'
-            }}>Sign up here!</Link></p>
+            }}>Register here!</Link></p>
 
         </form>
       </div>

@@ -12,16 +12,32 @@ function Register() {
     cpassword = document.querySelector('#cpassword').value
   }
 
+  let start = 0
+  let interval = 2000
+
   const match = () => {
     getInput()
-    password === cpassword 
-    ? document.querySelector('#register').disabled = false
-    : alert('Passwords do no match')
+
+    clearTimeout(interval)
+    if(cpassword){
+      start = setTimeout(
+        () => {
+          password === cpassword 
+          ? inputOK()
+          : document.querySelector('#error').style.visibility = 'visible'
+        },
+        interval
+      )
+    }
+  }
+
+  const inputOK = () => {
+    document.querySelector('#register').disabled = false
+    document.querySelector('#error').style.visibility = 'hidden'
   }
 
   const register = (event) => {
     event.preventDefault()
-    getInput()
 
     var myHeaders = new Headers()
     myHeaders.append("Content-Type", "application/json")
@@ -55,16 +71,11 @@ function Register() {
           <label htmlFor="email">Email:</label>
           <input required type="email" name="email" id="email" />
           <label htmlFor="password">Password:</label>
-          <input required type="password" name="password" id="password" />
+          <input required type="password" name="password" id="password" onChange={match}/>
           <label htmlFor="cpassword">Confirm Password:</label>
-          <input required type="password" name="password" id="cpassword" />
-          <button id='register' type='submit' style={{
-            backgroundColor: 'hsl(215, 65%, 63%)',
-            borderRadius: '40px',
-            padding: '10px 25px',
-            margin: '50px auto 15px auto',
-            width: '75%'
-          }}>Register</button>
+          <input required type="password" name="password" id="cpassword" onChange={match}/>
+          <p id='error'>Passwords do not match!</p>
+          <button id='register' type='submit' disabled>Register</button>
           <p style={{
             color: '#fff',
             fontSize: '0.8rem',
