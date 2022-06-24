@@ -8,12 +8,18 @@
 }
 
 .ccs-content{
-    background-color: var(--mk-black-);
+    background-color: #fff;
     padding: 1.4rem;
     max-width: 8.11in;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    color: var(--mk-black-);
+    box-shadow: 0 0 0.5rem 0.5rem #D0D0D0;
+    background-image: url('../../../public/Assets/BG_blue-green.png');
+    background-size: 55.5%;
+    background-position: top right;
+    background-repeat: no-repeat;
 }
 
 .ccs-content > h1, h2, h3, h4, h5, h6 {
@@ -24,6 +30,7 @@
     grid-row: 1;
     grid-column: 1 / span 2;
     text-align: center;
+    margin: 0 7rem;
 }
 
 .comp-id > img {
@@ -54,6 +61,14 @@
 
 .codes-cert > h3 {
     text-align: center;
+}
+
+.bottom-img{
+    height: 200px;
+    grid-column: 1 / span 2;
+    background-image: url('../../../public/Assets/building.jpg');
+    background-size: cover;
+    background-position: top;
 }
 
 .ccs-form{

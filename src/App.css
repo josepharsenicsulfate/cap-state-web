@@ -45,10 +45,9 @@ input{
   /* background: none; */
   background: var(--mk-grey-);
   border: none;
-  /* border-bottom: 1px solid var(--mk-black-); */
   border-radius: 40px;
   font-family: 'Poppins', 'sans-serif';
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 11px;
   text-align: justify;
   min-width: 98%;
@@ -58,10 +57,9 @@ input{
 input:focus{
   border: none;
   background: var(--mk-grey-);
-  /* border-bottom: 1px solid var(--mk-black-); */
   outline: none;
   /* background: none; */
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 textarea{

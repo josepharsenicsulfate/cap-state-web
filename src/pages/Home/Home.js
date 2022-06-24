@@ -93,7 +93,8 @@ function Home() {
         <section className='ccs-content'>
           <div className='comp-id'>
             <img src="" alt="" />
-            <h1>{deets.name}</h1>
+            <p style={{color: '#fff', textAlign: 'right'}}>{deets.name}</p>
+            <strong style={{fontSize: '2rem'}}>Capability <span style={{color: '#fff'}}>Statement</span></strong>
           </div>
           <div className='about'>
             <h3>About</h3>
@@ -139,6 +140,7 @@ function Home() {
               <li>{deets.codes_cert.cc_3}</li>
             </ul>
           </div>
+          <div className='bottom-img'></div>
         </section>
 
         <section className='ccs-form' >
@@ -179,12 +181,26 @@ function Home() {
               <input type='text' name='cc_3' defaultValue={deets.codes_cert.cc_1}/>
             </div>
             <button 
-              type='submit'>
+              type='submit'
+              style={{
+              backgroundColor: 'hsl(124, 84%, 36%)',
+              borderRadius: '40px',
+              padding: '10px 25px',
+              width: '75%',
+              margin: '0 auto'
+            }}>
               Save <FontAwesomeIcon icon='floppy-disk' />
             </button>
             <button 
               className='save-btn' 
-              onClick={download}>
+              onClick={download}
+              style={{
+              backgroundColor: 'hsl(124, 84%, 36%)',
+              borderRadius: '40px',
+              padding: '10px 25px',
+              width: '75%',
+              margin: '0 auto'
+            }}>
               Download <FontAwesomeIcon icon='download' />
             </button>
           </form>
