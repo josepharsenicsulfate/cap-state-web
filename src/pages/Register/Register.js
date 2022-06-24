@@ -12,21 +12,10 @@ function Register() {
     cpassword = document.querySelector('#cpassword').value
   }
 
-  let interval = 2000
-
   const match = () => {
     getInput()
-
-    clearTimeout(interval)
     if(cpassword){
-      start = setTimeout(
-        () => {
-          password === cpassword 
-          ? inputOK()
-          : inputNotOK()
-        },
-        interval
-      )
+        password === cpassword ? inputOK() : inputNotOK()
     }
   }
 
