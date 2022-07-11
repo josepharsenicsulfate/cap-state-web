@@ -2,20 +2,16 @@ import React, { useContext, useEffect } from 'react'
 import { Container, Button, Image, Card, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import FormCompany from '../../components/Forms/FormCompany'
-// import { UserContext } from '../../utilities/UserContext'
 
 import Navigation from '../../components/Navigation/Navigation'
 import { isLoggedIn as contextIsLoggedIn } from '../../utilities/UserContext'
 
 function Company() {
-  // const { token } = useContext(UserContext)
 
   const navigate = useNavigate()
   
   useEffect(() => {
-    // if(token.isLoggedIn === false || token === null || token === ""){
-    //   navigate('/login')
-    // }
+
     if(contextIsLoggedIn === false){ navigate('/login') }
   })
 
