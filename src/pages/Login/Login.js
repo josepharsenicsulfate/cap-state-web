@@ -1,14 +1,11 @@
 import React, { useState, useContext } from 'react'
 import { Button, Container, Row, Col, Form } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
-// import { UserContext } from '../../utilities/UserContext'
 import { setGlobalUser } from '../../utilities/UserContext'
 
 function Login() {
 
     const navigate = useNavigate()
-
-    // const { setUserToken } = useContext(UserContext)
 
     const [ validated, setValidated ] = useState(false)
     const [ formData, updateFormData ] = useState('')

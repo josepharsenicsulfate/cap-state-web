@@ -1,21 +1,14 @@
 import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
 import { token as contextToken } from '../../utilities/UserContext'
-// import { UserContext } from '../../utilities/UserContext'
 
 function FormUser() {
 
     const [ validated, setValidated ] = useState(false)
-    // const [ formData, updateFormData ] = useState('')
-    // const { token } = useContext(UserContext)
 
     let dataOther = {}
 
     const handleChange = async (e) => {
-      // updateFormData({
-      //   ...formData,
-      //   [e.target.name]: await isImage(e.target)
-      // })
       getInput(e.target)
     }
 
@@ -27,9 +20,6 @@ function FormUser() {
         event.stopPropagation()
       }
       setValidated(true)
-      // post(formData)
-
-      // console.log(JSON.stringify(dataOther))
       post(dataOther)
     }
 
@@ -64,7 +54,6 @@ function FormUser() {
       var myHeaders = new Headers()
       myHeaders.append("Accept", "application/json")
       myHeaders.append("Content-Type", "application/json")
-      // myHeaders.append("Authorization", {token})
       myHeaders.append("Authorization", "Bearer " + contextToken)
       
       var requestOptions = {
@@ -76,7 +65,6 @@ function FormUser() {
       
       fetch("http://127.0.0.1:8000/api/v1/user/profile", requestOptions)
         .then(response => response.text())
-        // .then(result => console.log(result))
         .catch(error => console.log('error', error))
     }
 

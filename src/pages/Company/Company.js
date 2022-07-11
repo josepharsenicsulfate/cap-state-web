@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Container, Button, Image, Card, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import FormCompany from '../../components/Forms/FormCompany'

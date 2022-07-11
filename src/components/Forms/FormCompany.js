@@ -4,16 +4,10 @@ import { token as contextToken } from '../../utilities/UserContext'
 
 function FormCompany() {
     const [ validated, setValidated ] = useState(false)
-    // const [ formData, updateFormData ] = useState('')
-    // const { token } = useContext(UserContext)
 
     let dataOther = {}
 
     const handleChange = async (e) => {
-      // updateFormData({
-      //   ...formData,
-      //   [e.target.name]: await isImage(e.target)
-      // })
       getInput(e.target)
     }
 
@@ -25,7 +19,6 @@ function FormCompany() {
         event.stopPropagation()
       }
       setValidated(true)
-      // post(formData)
       post(dataOther)
     }
 
@@ -60,7 +53,6 @@ function FormCompany() {
       var myHeaders = new Headers()
       myHeaders.append("Accept", "application/json")
       myHeaders.append("Content-Type", "application/json")
-      // myHeaders.append("Authorization", {token})
       myHeaders.append("Authorization", "Bearer " + contextToken)
       
       var requestOptions = {
@@ -72,7 +64,6 @@ function FormCompany() {
       
       fetch("http://127.0.0.1:8000/api/v1/company/profile", requestOptions)
         .then(response => response.text())
-        // .then(result => console.log(result))
         .catch(error => console.log('error', error))
     }
 

@@ -1,4 +1,3 @@
-// import React, { useContext, useEffect } from 'react'
 import React, { useEffect } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
@@ -6,16 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import Navigation from '../../components/Navigation/Navigation'
 import FieldCCS from '../../components/FieldCCS/FieldCCS'
 import FormCCS from '../../components/Forms/FormCCS'
-// import { UserContext } from '../../utilities/UserContext'
 import { isLoggedIn as contextIsLoggedIn } from '../../utilities/UserContext'
 
 function Home() {
 
   const navigate = useNavigate()
-  // let { token } = useContext(UserContext)
 
   useEffect(() => {
-    // contextIsLoggedIn === false ? navigate('/login') : token = { isLoggedIn: contextIsLoggedIn, token: contextToken }
     if(contextIsLoggedIn === false){ navigate('/login') }
   })
 

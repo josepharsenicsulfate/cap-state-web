@@ -1,15 +1,11 @@
-// import React, { useContext } from 'react'
 import React from 'react'
 import { Nav, Navbar, Container, Popover, OverlayTrigger, Image, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { removeGlobalUser } from '../../utilities/UserContext'
-// import { UserContext } from '../../utilities/UserContext'
 
 function Navigation() {
-  // const { setUserToken } = useContext(UserContext)
 
   const removeUser = () => {
-    // setUserToken('')
     removeGlobalUser()
   }
 
