@@ -2,8 +2,6 @@ import React from 'react'
 import { Card, Container, Row, Col, Image } from 'react-bootstrap'
 
 function FieldCCS() {
-  
-  const test = process.env.PUBLIC_URL + "building.jpg"
 
   return (
     <Card className='text-dark p-5 download-ccs'
@@ -57,7 +55,6 @@ function FieldCCS() {
           </Col>
         </Row>
       </Container>
-      <Image src={test} style={{ transform: 'translateY(48px)'}} />
     </Card>
   )
 }

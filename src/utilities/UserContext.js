@@ -1,10 +1,7 @@
-export let isLoggedIn, token = sessionStorage.getItem('token')
-
-export let setGlobalUser = (logBool) => {
-    isLoggedIn = logBool
+export let setGlobalUser = (logBool, token) => {
+    sessionStorage.setItem('user', JSON.stringify({isLoggedIn: logBool, token: token}))
 }
 
 export let removeGlobalUser = () => {
-    isLoggedIn = false
-    token = null
+    sessionStorage.removeItem('token')
 }

@@ -2,28 +2,27 @@ import React, { useState, useEffect } from 'react'
 import { Container, Card, Row, Col, Image, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import FormUser from '../../components/Forms/FormUser'
-
 import Navigation from '../../components/Navigation/Navigation'
-import { token as contextToken, isLoggedIn as contextIsLoggedIn } from '../../utilities/UserContext'
 
 function User() {
-    const [ user, setUser ] = useState('')
     const navigate = useNavigate()
+    const [ loggedUser, setLoggedUser ] = useState('')
   
     useEffect(() => {
-        contextIsLoggedIn === false ? navigate('/login') : get()
-    })
+      const session = JSON.parse(sessionStorage.getItem('user'))
+      session ? setLoggedUser(session) : navigate('/login')
+    }, [navigate])
 
     const get = () => {
         var myHeaders = new Headers()
         myHeaders.append("Accept", "application/json")
         myHeaders.append("Content-Type", "application/json")
-        myHeaders.append("Authorization", "Bearer " + contextToken)
+        // myHeaders.append("Authorization", "Bearer " + user.token)
 
         var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
         }
 
         fetch("http://127.0.0.1:8000/api/v1/user", requestOptions)

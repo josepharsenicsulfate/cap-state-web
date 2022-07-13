@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Button, Container, Row, Col, Form } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import { setGlobalUser } from '../../utilities/UserContext'
@@ -49,8 +49,7 @@ function Login() {
     }
 
     const loginOK = (token) => {
-        sessionStorage.setItem('token', token)
-        setGlobalUser(true)
+        setGlobalUser(true, token)
         navigate('/home')
     }
 

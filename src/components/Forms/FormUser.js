@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Form } from 'react-bootstrap'
-import { token as contextToken } from '../../utilities/UserContext'
 
 function FormUser() {
 
@@ -54,7 +53,7 @@ function FormUser() {
       var myHeaders = new Headers()
       myHeaders.append("Accept", "application/json")
       myHeaders.append("Content-Type", "application/json")
-      myHeaders.append("Authorization", "Bearer " + contextToken)
+      // myHeaders.append("Authorization", "Bearer " + contextToken)
       
       var requestOptions = {
         method: 'POST',

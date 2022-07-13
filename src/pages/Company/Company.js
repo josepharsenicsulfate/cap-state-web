@@ -1,19 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Button, Image, Card, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import FormCompany from '../../components/Forms/FormCompany'
-
 import Navigation from '../../components/Navigation/Navigation'
-import { isLoggedIn as contextIsLoggedIn } from '../../utilities/UserContext'
 
 function Company() {
-
   const navigate = useNavigate()
-  
-  useEffect(() => {
+  const [ loggedUser, setLoggedUser ] = useState('')
 
-    if(contextIsLoggedIn === false){ navigate('/login') }
-  })
+  useEffect(() => {
+    const session = JSON.parse(sessionStorage.getItem('user'))
+    session ? setLoggedUser(session) : navigate('/login')
+  }, [navigate])
 
   const toggleForm = (e) => {
     console.log(e)

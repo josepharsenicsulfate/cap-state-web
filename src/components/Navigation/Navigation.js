@@ -46,7 +46,7 @@ function Navigation() {
               onMouseEnter={toggle}
               id='navImage'
               roundedCircle={true} 
-              src='http://127.0.0.1:8000/storage/profile_picture/userId-2.png' 
+              src='http://127.0.0.1:8000/storage/profile_picture/userId-1.png' 
               style={{width: '50px'}} />
           </OverlayTrigger>
           <Navbar.Toggle aria-controls='basic-navbar-nav' className='bg-light'/>

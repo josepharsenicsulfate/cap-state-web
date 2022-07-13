@@ -1,19 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 import Navigation from '../../components/Navigation/Navigation'
 import FieldCCS from '../../components/FieldCCS/FieldCCS'
-import FormCCS from '../../components/Forms/FormCCS'
-import { isLoggedIn as contextIsLoggedIn } from '../../utilities/UserContext'
 
 function Home() {
-
   const navigate = useNavigate()
+  const [ loggedUser, setLoggedUser ] = useState('')
 
   useEffect(() => {
-    if(contextIsLoggedIn === false){ navigate('/login') }
-  })
+    const session = JSON.parse(sessionStorage.getItem('user'))
+    session ? setLoggedUser(session) : navigate('/login')
+  }, [navigate])
 
   return (
     <Container fluid className='m-0 p-0'>
@@ -22,10 +21,7 @@ function Home() {
         <Card className='p-5 text-light bg-light' style={{ boxShadow: '0px 0px 10px 5px rgba(0, 0, 0, 0.25)'}}>
           <Row className='py-3'>
             <Col lg={{ offset: 2, span: 8}}>
-              <FormCCS />
-            </Col>
-            <Col lg={5}>
-              {/* <FieldCCS /> */}
+              <FieldCCS />
             </Col>
           </Row>
         </Card>
