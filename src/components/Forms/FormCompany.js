@@ -52,7 +52,7 @@ function FormCompany() {
       var myHeaders = new Headers()
       myHeaders.append("Accept", "application/json")
       myHeaders.append("Content-Type", "application/json")
-      // myHeaders.append("Authorization", "Bearer " + contextToken)
+      myHeaders.append("Authorization", "Bearer " + JSON.parse(sessionStorage.getItem('user').token))
       
       var requestOptions = {
         method: 'POST',
@@ -67,6 +67,7 @@ function FormCompany() {
     }
 
     return (
+      <>
         <Form noValidate validated={validated} onSubmit={handleSubmit} id='ccs-company-remote-submit'>
           <Form.Control name='logo' onChange={handleChange} placeholder='Company Logo' type='file'/>
           <Form.Control name='name' onChange={handleChange} placeholder='Company Name' />
@@ -83,6 +84,8 @@ function FormCompany() {
           <Form.Control name='duns_number' onChange={handleChange} placeholder='Duns Number' />
           <Form.Control name='cage_code' onChange={handleChange} placeholder='Cage Code' />
         </Form>
+      </>
+
     )
 }
 

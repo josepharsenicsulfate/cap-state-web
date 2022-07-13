@@ -10,14 +10,12 @@ import Error from './pages/Error/Error'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFloppyDisk, faPlus } from '@fortawesome/free-solid-svg-icons'
-// import { UserContext } from './utilities/UserContext'
 
 library.add(faFloppyDisk, faPlus)
 
 function App() {
 
   return (
-    // <UserContext.Provider value={sessionStorage.getItem('token')}>
       <div className="App">
         <BrowserRouter>
           <Routes>
@@ -31,7 +29,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-    // </UserContext.Provider>
   )
 }
 

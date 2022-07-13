@@ -7,17 +7,21 @@ import Navigation from '../../components/Navigation/Navigation'
 function User() {
     const navigate = useNavigate()
     const [ loggedUser, setLoggedUser ] = useState('')
+    const [ profile, setProfile ] = useState('')
   
     useEffect(() => {
       const session = JSON.parse(sessionStorage.getItem('user'))
-      session ? setLoggedUser(session) : navigate('/login')
+      if(session){
+        setLoggedUser(session)
+        get()
+      }
     }, [navigate])
 
     const get = () => {
         var myHeaders = new Headers()
         myHeaders.append("Accept", "application/json")
         myHeaders.append("Content-Type", "application/json")
-        // myHeaders.append("Authorization", "Bearer " + user.token)
+        myHeaders.append("Authorization", "Bearer " + JSON.parse(sessionStorage.getItem('user')).token)
 
         var requestOptions = {
             method: 'GET',
@@ -28,7 +32,7 @@ function User() {
         fetch("http://127.0.0.1:8000/api/v1/user", requestOptions)
         .then(response => response.text())
         .then(result => JSON.parse(result))
-        .then(result => console.log(result.results))
+        .then(result => setProfile(result.results))
         .catch(error => console.log('error', error))
     }
 
@@ -50,7 +54,7 @@ function User() {
                         <Image 
                             fluid={true}
                             roundedCircle={true} 
-                            src='http://127.0.0.1:8000/storage/profile_picture/userId-2.png'
+                            src='http://127.0.0.1:8000/storage/profile_picture/userId-1.png'
                             style={{ width: '150px'}}  />
                     </Row>
                     <Row className='py-3'>
@@ -84,12 +88,11 @@ function User() {
                             <h3>Name</h3>
                             <p>John Doe</p>
                             <h3>Mobile</h3>
-                            <p>0929456789123</p>   
+                            {/* <p>{profile[0].user_profile.telephone}</p> */}
                             <h3>Email</h3>
-                            <p>john_doe@gmail.com</p>   
+                            {/* <p>{profile[0].email}</p> */}
                             <h3>Address</h3>
                             <p>Random St., Florida, USA</p>
-                            {/* <Image src={test} /> */}
                         </Col>
                         <Col id='ccs-user-form' className='text-dark d-none' lg={{ span: 5, offset: 2}}>
                             <FormUser />
