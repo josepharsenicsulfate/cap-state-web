@@ -35,24 +35,28 @@ function Register() {
         }
         setValidated(true)
         register(JSON.stringify(formData))
-        handleShow()
     }
 
     const register = (creds) => {
-
-        var myHeaders = new Headers()
-        myHeaders.append("Content-Type", "application/json")
-    
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: creds,
-            redirect: 'follow'
+        if(formData.password !== formData.password_confirmation){
+            alert('Passwords do not match!')
+        }else{
+            var myHeaders = new Headers()
+            myHeaders.append("Content-Type", "application/json")
+        
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: creds,
+                redirect: 'follow'
+            }
+              
+            fetch("http://127.0.0.1:8000/api/v1/auth/register", requestOptions)
+                .then(response => response.text())
+                .catch(error => console.log('error', error))
+                
+            handleShow()
         }
-          
-        fetch("http://127.0.0.1:8000/api/v1/auth/register", requestOptions)
-            .then(response => response.text())
-            .catch(error => console.log('error', error))
     }
 
     return (

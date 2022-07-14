@@ -9,11 +9,12 @@ function Company() {
   const [ loggedUser, setLoggedUser ] = useState('')
   const [ company, setCompany ] = useState('')
 
+  const session = JSON.parse(sessionStorage.getItem('user'))
+
   useEffect(() => {
-    const session = JSON.parse(sessionStorage.getItem('user'))
     session ? setLoggedUser(session) : navigate('/login')
     get()
-  },[navigate])
+  },[])
 
   const setDefault = () => {
     setCompany({
@@ -38,7 +39,7 @@ function Company() {
     var myHeaders = new Headers()
     myHeaders.append("Accept", "application/json")
     myHeaders.append("Content-Type", "application/json")
-    myHeaders.append("Authorization", "Bearer " + JSON.parse(sessionStorage.getItem('user')).token)
+    myHeaders.append("Authorization", `Bearer ${session.token}`)
 
     var requestOptions = {
         method: 'GET',
@@ -56,11 +57,12 @@ function Company() {
   const toggleForm = () => {
     document.getElementById('ccs-company-edit').classList.toggle('d-none')
     document.getElementById('ccs-company-save').classList.toggle('d-none')
+    document.getElementById('ccs-company-cancel').classList.toggle('d-none')
     document.getElementById('ccs-company-field').classList.toggle('d-none')
     document.getElementById('ccs-company-form').classList.toggle('d-none')
   }
 
-  if(company === null){
+  if(company === null || company === '' || company === undefined){
     return (
       <Container fluid className='m-0 p-0'>
         <Navigation />
@@ -84,7 +86,7 @@ function Company() {
                       fluid={true}
                       roundedCircle={true} 
                       src={`http://127.0.0.1:8000/storage/${company.logo}`}
-                      style={{ width: '150px'}}  />
+                      style={{ width: '150px', height: '150px', padding: '0'}}  />
               </Row>
               <Row className='py-3'>
                 <Col lg={{ span: 2, offset: 10}} className='btn-group'>
@@ -102,6 +104,13 @@ function Company() {
                       form='ccs-company-remote-submit' 
                       onClick={toggleForm}
                   >Save</Button>
+                  <Button 
+                      variant='danger' 
+                      id='ccs-company-cancel' 
+                      className='w-25 d-none' 
+                      type='submit' 
+                      onClick={toggleForm}
+                  >Cancel</Button>
                 </Col>
               </Row>
               <Row>
@@ -141,7 +150,7 @@ function Company() {
                     </Col>
                   </Row>
                 </Col>
-                <Col id='ccs-company-form' className='text-dark d-none' lg={{ span: 5, offset: 2}}>
+                <Col id='ccs-company-form' className='text-dark d-none'>
                   <FormCompany />
                 </Col>
               </Row>
